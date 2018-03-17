@@ -1,0 +1,25 @@
+[
+    {
+    "type": "فقير",
+    "images": [{"image":"../../assets/imgs/1.jpg"},
+        {"image":"../../assets/imgs/1.jpg"}],
+    "location": "بغداد/العامرية",
+    "date": "10/10/1977"
+    },
+    {
+    "type": "نازح",
+    "images": [{"image":"../../assets/imgs/2.jpg"},
+                {"image":"../../assets/imgs/2.jpg"}],
+    "location": "بغداد/السيدية",
+    "date": "10/10/1977"
+    },
+    {
+    "type": "فقير",
+    "images": [{"image":"../../assets/imgs/3.jpg"},
+        {"image":"../../assets/imgs/3.jpg"}],
+    "location": "بغداد/المنصور",
+    "date": "10/10/1977"
+    }
+
+]
+

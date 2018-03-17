@@ -1,0 +1,63 @@
+
+<ion-header >
+
+  <ion-navbar  >
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title  >التبليغ عن الحالات الإنسانية</ion-title>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>نوع الحالة الإنسانية</ion-label>
+        <ion-select #type   (change)="selectItem($event)">
+          <ion-option value="p">فقير</ion-option>
+          <ion-option value="n">نازح</ion-option>
+          <ion-option value="s">مريض</ion-option>
+          <ion-option value="k">كوارث</ion-option>
+        </ion-select>
+        
+      </ion-item>
+    
+      
+  <ion-item>
+    <ion-label stacked style="font-size: 16px">اسمك الثلاثي</ion-label>
+    <ion-input   type="text" #name ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked style="font-size: 16px">موقع الحالة الإنسانية</ion-label>
+    <ion-input   type="text"  #location  ></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label stacked style="font-size: 16px">أقرب نقطة دالة</ion-label>
+      <ion-input  type="text"   ></ion-input>
+    </ion-item>
+  <ion-item>
+    <ion-label stacked style="font-size: 16px">شرح عن الحالة الإنسانية</ion-label>
+    <ion-input  type="text" #details  ></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label stacked style="font-size: 16px">توثيق الحالة الإنسانية (بالصور)</ion-label>
+      
+    </ion-item>
+    <input (change)="image1Change($event)" accept="image/*" name="file" ng-value="fileToUpload"
+        value="{{fileToUpload}}" file-model="fileToUpload"
+        set-file-data="fileToUpload = value;" 
+        type="file" id="my_file" />
+    
+
+    <button (click)="butsubmit(type, name, location,details)" ion-button round full>خزن</button>
+
+    
+
+
+    <ion-input type="text" (keyup)="onNameKeyUp($event)"></ion-input>
+  
+  
+</ion-content>

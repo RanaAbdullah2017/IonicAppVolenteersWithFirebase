@@ -1,0 +1,95 @@
+
+page-home{
+    body{
+        direction: rtl;
+    }
+    // #navColor{
+    //     background: #107979;
+    // }
+    .bar-button-menutoggle-md ion-icon {
+        padding: 0 6px;
+        font-size: 2.4rem;
+        color: white;
+    }
+    .toolbar-background {
+        background-color: #298b74;
+       
+      }
+      .toolbar-title-md
+      {
+        color:#f4f4f4;
+      }
+      .bar-button-default-md
+      {
+        color:#f4f4f4;
+      }
+
+      
+      .slide{
+          padding-top: 10px;
+      }
+      //Start Social Media
+      .list-inline{padding-left:0;margin-left:-5px;list-style:none}
+      .list-inline>li{display:inline-block;padding-right:5px;padding-left:5px}
+
+      .list-inline>li>a{
+        font-size:16px;
+        // padding: 10px;
+        color:#aaaaaa;
+        display: inline-block;
+        }
+        .list-inline>li>a:hover{
+            background-color: #3765a3;
+            color:#fff;
+            padding-right: 5px;
+            width: 45px;
+        }
+        //end Social Media
+    .content-md {
+        color: #298b74;
+    }
+    ion-icon {
+        padding-right: 5px;
+        padding-top: 2px;
+        font-size: 30px; //Preferred size here
+    }
+    .card-title-md{
+        font-size:1.5rem;
+    }
+    .card-content-md{
+        // background:#aaaaaa;
+        font-size: 18px;
+        // background: white;
+        // border: 1px solid white;
+        // border-radius: 3px;
+        padding:15px;
+        width: 100%;
+        max-width: 400px;
+        // margin: 2rem auto;
+        background: white;
+        border-block-end: 1px solid #aaaaaa;
+        border-radius: 3px;
+        text-align: right;
+    }
+    span{
+        font-size:18px;color:black;font:bold;
+    }
+    ion-row{
+        background-color: #ebe8e8;
+    }
+    .styleType{
+        font-weight: bold; 
+        font-size: 1.5rem;
+        padding-left:5px;
+        padding-right: 3px;
+      }
+      h2{
+        font-weight: bold; 
+        font-size: 1.5rem;
+      }
+    // .material{
+    //     background: #298b74;
+    // }
+}
+
+ 

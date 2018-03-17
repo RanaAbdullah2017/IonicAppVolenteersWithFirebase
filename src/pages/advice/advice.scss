@@ -1,0 +1,36 @@
+page-advice {
+    .container {
+        position: relative;
+        width: 249px;
+      }
+      
+      .mask {
+        top: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        // background: radial-gradient(circle, transparent 81px, white);
+      }
+
+      .bgInitPage{
+       background: rgb(207, 205, 205);
+       
+      }
+      .bgInitItem{
+        background: #298b74;
+        height: 100px;
+        
+       }
+       .bgInitItem2{
+           padding-top:0px;
+        background:  rgb(207, 205, 205);
+        
+       }
+      .img{
+          margin-right:35%;
+        border-radius: 50%;
+      }
+     
+}
