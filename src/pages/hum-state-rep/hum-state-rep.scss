@@ -1,4 +1,16 @@
 page-hum-state-rep {
+  .btn-w{
+    color:#fff
+}
+.g-font{
+  font-family: 'Droid Arabic Kufi', serif;
+}
+.toolbar-title-ios {
+
+  font-size: 0.88em !important;
+  font-weight: 10 !important;
+
+}
     ion-label{
         font-size: 16px;
       }
@@ -144,4 +156,33 @@ page-hum-state-rep {
         .button-md{
           font-size:20px;
         }       
+        //********
+        .inputfile {
+          width: 0.1px;
+          height: 0.1px;
+          opacity: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: -1;
+        }
+        .inputfile + label {
+          font-weight: 700;
+          background-color: white;
+          color: #00a984;
+          border: solid 2px #00a984;
+          display: inline-block;
+          border-radius: 64px;
+          padding: 0px 10px;
+          margin: 10% 30%;
+      }
+      
+      .inputfile:focus + label,
+      .inputfile + label:hover {
+        background-color: white;
+        color: #00a984;
+        border: solid 2px #00a984;
+      }
+      .inputfile + label {
+        cursor: pointer; /* "hand" cursor */
+      }
 }

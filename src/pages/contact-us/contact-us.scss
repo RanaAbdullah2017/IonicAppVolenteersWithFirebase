@@ -31,11 +31,17 @@ page-contact-us {
         font-weight:bold;
     }
     .imgContactus{
-        border-radius: 50%;
-        border:2px solid;
+        border-radius: 20%;
+        // border:2px solid;
         width:100px;
         border-color: #777e7c;
     }
-    
+    .btn-w{
+        color:#fff
+    }
+    .g-font{
+      font-family: 'Droid Arabic Kufi', serif;
+      color: #fff
+  }
 
 }

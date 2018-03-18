@@ -6,11 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>حول التطبيق</ion-title>
+  <ion-navbar color="hu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
+    </button>
+    <ion-title class="g-font">حول التطبيق</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -23,13 +23,12 @@
           <span>معلومات عن التطبيق والهدف منه
           </span>
         </div>
-      <ion-card text-wrap class="list card animated bounceInLeft" >
-            <ion-item class="cardProg">
-                <ion-avatar item-start>
-                    <ion-icon ios="ios-mail" md="md-mail"></ion-icon>
-                    <h1>رسالتنا</h1>
-                </ion-avatar>
-              <p>ندعوُ الإنسان دائماً إلى تقديمِ الخير وتنحية الشرّ بشكلٍ نهائيّ, وأن مِن سِمات الطّبيعة الإنسانيّة، الخصائص الاجتماعيّة لأنّ الإنسان بطبعِهِ لا يستطيعُ العيش بمفردِهِ؛ بل يحتاجُ إلى أنْ يكونَ ضمن مُجتمعٍ،, ومع مجموعةٍ من الأشخاص سواءً في منزلهِ، أو مكان دراستِهِ، أو عملهِ.</p>
+        <ion-card text-wrap class="list card animated bounceInRight" >
+          <ion-item class="cardProg">
+              <ion-icon name="mail" large></ion-icon>
+              <span style="font-weight: bold; 
+              font-size: 18px;">رسالتنا</span>
+              <p class="mu2">ندعوُ الإنسان دائماً إلى تقديمِ الخير وتنحية الشرّ بشكلٍ نهائيّ, وأن مِن سِمات الطّبيعة الإنسانيّة، الخصائص الاجتماعيّة لأنّ الإنسان بطبعِهِ لا يستطيعُ العيش بمفردِهِ؛ بل يحتاجُ إلى أنْ يكونَ ضمن مُجتمعٍ،, ومع مجموعةٍ من الأشخاص سواءً في منزلهِ، أو مكان دراستِهِ، أو عملهِ.</p>
             </ion-item>
         </ion-card>
       
@@ -38,8 +37,8 @@
                 <ion-icon ios="logo-android" md="logo-android" large></ion-icon>
                 <span style="font-weight: bold; 
                 font-size: 18px;">حول التطبيق</span>
-                <p>الإنسان بطبعِهِ لا يستطيعُ العيش بمفردِهِ؛ بل يحتاجُ إلى أنْ يكونَ ضمن مُجتمعٍ، ومع مجموعةٍ من الأشخاص سواءً في منزلهِ، أو مكان دراستِهِ، أو عملهِ؛ لأنّ الخصائص الاجتماعيّة هي مِن سِمات الطّبيعة الإنسانيّة، فالفطرةُ السّليمة تدعوُ الإنسان دائماً إلى تقديمِ الخير وتنحية الشرّ بشكلٍ نهائيّ.</p>
-                   <p>لذا انطلاقا من هذا المبدأ كان من الضروري أيجاد جسم يجمع بين المحتاجين والمتطوعين. هذا الجسم يعرف باسم "منصة أنا أنسان". وهو موقع الكتروني الأول من نوعه في العراق والذي يهدف الى عرض الحالات الأنسانية في الصفحة الرئيسية إذ يتمكن من خلاله الأفراد الذين يتمتعون بالمهارة والحماس, تقديمُ المساعدةِ والعون والجهد مِن أجل العمل على تحقيقِ الخير في المُجتمعِ عُموماً ولأفراده خصوصاً.</p>
+                <p class="mu2">الإنسان بطبعِهِ لا يستطيعُ العيش بمفردِهِ؛ بل يحتاجُ إلى أنْ يكونَ ضمن مُجتمعٍ، ومع مجموعةٍ من الأشخاص سواءً في منزلهِ، أو مكان دراستِهِ، أو عملهِ؛ لأنّ الخصائص الاجتماعيّة هي مِن سِمات الطّبيعة الإنسانيّة، فالفطرةُ السّليمة تدعوُ الإنسان دائماً إلى تقديمِ الخير وتنحية الشرّ بشكلٍ نهائيّ.</p>
+                   <p class="mu2">لذا انطلاقا من هذا المبدأ كان من الضروري أيجاد جسم يجمع بين المحتاجين والمتطوعين. هذا الجسم يعرف باسم "منصة أنا أنسان". وهو موقع الكتروني الأول من نوعه في العراق والذي يهدف الى عرض الحالات الأنسانية في الصفحة الرئيسية إذ يتمكن من خلاله الأفراد الذين يتمتعون بالمهارة والحماس, تقديمُ المساعدةِ والعون والجهد مِن أجل العمل على تحقيقِ الخير في المُجتمعِ عُموماً ولأفراده خصوصاً.</p>
             </ion-item>
         </ion-card>
     </ion-card>
@@ -49,32 +48,54 @@
             </span>
           </div>
               <!-- <h2>حول المبرمجين</h2> -->
-          <ion-card >
-              <ion-item text-wrap class="cardProg">
-                <ion-avatar item-start>
-
+                 <!-- ..... -->
+              <ion-card>
+                <ion-item>
+                  <ion-avatar item-start>
                     <img src="../../assets/imgs/MuhEss.jpg">
-                    <h2>محمد عيسى</h2>
                   </ion-avatar>
-                
-                <h6>muhammed.essa@codeforiraq.org</h6>
-                <p class="p22">"صاحب ومؤسس مبادرة البرمجة من أجل العراق"</p>
-            </ion-item>
-          </ion-card>      
-          <ion-card >
+                  <h2>محمد عيسى</h2>
+                  <small class="mu">muhammed.essa@codeforiraq.org</small>
+                </ion-item>
+                <ion-card-content>
+                  <p>صاحب ومؤسس مبادرة البرمجة من أجل العراق</p>       
+                </ion-card-content> 
+              </ion-card>
+              <!-- ..... -->     
+                <!-- ..... -->
+                <ion-card>
+                  <ion-item>
+                    <ion-avatar item-start>
+                      <img src="../../assets/imgs/programmer.png">
+                    </ion-avatar>
+                    <h2>المبرمجين</h2>
+                    <small class="mu">info@codeforiraq.org</small>
+                  </ion-item>
+                  <ion-card-content>
+                    <p>front-end | Zena Hasan</p><br>
+                    <p> Back-end | Fatima Amer</p><br>
+                    <p>Mobile Application | Rana Abdullah.</p>   
+                  </ion-card-content> 
+                </ion-card>
+                <!-- ..... -->               
+          <!-- <ion-card >
               <ion-item text-wrap class="cardProg">
                   <ion-avatar item-start>
                       <img src="../../assets/imgs/programmer.png">
                       <h2>المبرمجين</h2>
                     </ion-avatar>
-                    <h4>info@codeforiraq.org</h4>
-
-                    <span>front-end | Zena Hasan</span><br>
-                    <span> Back-end | Fatima Amer</span><br>
-                    <span>Mobile Application | Rana Abdullah.</span>
+      
             </ion-item>
+            <ion-card-content>
+              <h4>info@codeforiraq.org</h4>
+
+              <span>front-end | Zena Hasan</span><br>
+              <span> Back-end | Fatima Amer</span><br>
+              <span>Mobile Application | Rana Abdullah.</span>
+             
+            </ion-card-content>
           </ion-card>
-          
+           -->
         
           <!-- <ion-item>
             <span item-left>18 min</span>

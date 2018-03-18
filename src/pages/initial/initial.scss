@@ -1,68 +1,20 @@
 page-initial {
-    .bgInitPage{
-        // background-image: url('../../assets/imgs/bg2.jpg');
-        // background: linear-gradient(to bottom left, #ccffff 0%, #006666 81%);
-        // background: linear-gradient(to bottom left, #ccffcc 0%, #107979 81%);
-        background:#298b74;
-        background-repeat: no-repeat;
-        background-size:cover; 
-        background-position:center; 
-    }
+  .light{
+    font-size:60px;
+    margin-right: 80%;
+  }
+  .start-p{
+    color:#00a985;
+    font-size: 15px;  
+      margin-right: 3%;
+  }
+  .st-card{
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0), 0 3px 1px -2px rgba(0, 0, 0, 0.18), 0 1px 5px 0 rgba(0, 0, 0, 0);
+}
+  }
 
-    .toolbar-background {
-        background-color: #298b74;
-       
-      }
-      .toolbar-title-md
-      {
-        color:#f4f4f4;
-      }
-      ion-card{
-        border-block-end: 1px solid red;
-        border-radius: 3px;
-        align-items: center;
-        padding:10px
-      }
-      .imgInit{
-        border-radius: 50%;
-        border:2px solid;
-        width:100px;
-        border-color: rgb(255, 115, 0);
-        margin-top: 25% ;
-        margin-right: 100px;
-    }
-    .Above{
-      background-color: #74b1a2;
-
-      height: 50%;
-    }
-    .Under
-    {
-      height: 50%;
-      
-    }
-    .mid{
-      height:1px;
-      background-color:rgb(255, 115, 0);
-    }
-    .light{
-      font-size:60px;
-      color: azure;
-      margin-right: 80%;
-    }
-    .light:hover{
-      color: rgb(255, 115, 0);
-    }
-
-    p{
-      padding-right: 20px;
-      color: azure;
-      font-size: 20px;
-      font-family: cursive;
-      font-style: bold;
-    }
-    // lStart{
-    //   color:#ff9f3c;
-    //   font-size: 12px;
-    // }
+ion-content {
+    
+  font-family: 'Droid Arabic Kufi', serif;
+  
 }

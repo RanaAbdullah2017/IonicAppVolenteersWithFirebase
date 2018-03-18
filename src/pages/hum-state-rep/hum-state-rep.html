@@ -1,11 +1,11 @@
 
 <ion-header >
 
-  <ion-navbar  >
+  <ion-navbar color="hu">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
     </button>
-    <ion-title  >التبليغ عن الحالات الإنسانية</ion-title>
+    <ion-title  class="g-font">التبليغ عن الحالات الإنسانية</ion-title>
     
   </ion-navbar>
 
@@ -49,10 +49,11 @@
     <input (change)="image1Change($event)" accept="image/*" name="file" ng-value="fileToUpload"
         value="{{fileToUpload}}" file-model="fileToUpload"
         set-file-data="fileToUpload = value;" 
-        type="file" id="my_file" />
+        type="file" id="my_file" class="inputfile" />
+        <label for="my_file">تحميل صورة</label>
     
 
-    <button (click)="butsubmit(type, name, location,details)" ion-button round full>خزن</button>
+    <button (click)="butsubmit(type, name, location,details)" ion-button round full color="hu">حفظ</button>
 
     
 

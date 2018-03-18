@@ -1,28 +1,14 @@
 <ion-header >
-  <ion-navbar >
+  <ion-navbar color="hu">
     <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
     </button>
-    <ion-title >الرئيسية</ion-title>
+    <ion-title class="g-font">الرئيسية</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-    
-    <!-- <img src="../../assets/imgs/1.jpg" height="150" width="590"> -->
-    <ion-item class="material">
-            <!-- <div class="row">
-                <div class="col-md-6"> -->
-                  <ul class="list-inline">
-                      <li><a href=""> <ion-icon ios="logo-facebook" md="logo-facebook"></ion-icon></a></li>
-                      <li><a href=""><ion-icon ios="logo-twitter" md="logo-twitter"></ion-icon></a></li>
-                      <li><a href=""><ion-icon ios="logo-linkedin" md="logo-linkedin"></ion-icon></a></li>
-                      <li><a href=""><ion-icon ios="logo-googleplus" md="logo-googleplus"></ion-icon></a></li>
-                      
-                  </ul>
-                <!-- </div>
-        </div> -->
-    </ion-item>
+
     
   <ion-card *ngFor="let needer of needers | async">
       <ion-row>

@@ -1,6 +1,6 @@
 page-about-us {
     #navColor{
-        background: #107979;
+        background: #00a984;
     }
     .bar-button-menutoggle-md ion-icon {
         padding: 0 6px;
@@ -8,7 +8,7 @@ page-about-us {
         color: white;
     }
     .toolbar-background {
-        background-color: #298b74;
+        background-color: #00a984;
        
       }
       .toolbar-title-md
@@ -29,17 +29,16 @@ page-about-us {
     }
     .styleType{
         font-weight: bold; 
-        font-size: 1.5rem;
+        // font-size: 1.5rem;
         padding-left:5px;
         padding-right: 3px;
-        background-color: #298b74;
+        background-color: #00a984;
        
       }
       .Prog{
-        border-top-left-radius: 2%;
-        border-top-right-radius: 2%;
-        border-top-color: #298b74;
-        border-bottom-color: #298b74;
+ color:#fff;
+        border-top-color: #00a984;
+        border-bottom-color: #00a984;
       }
       .cardProg:hover{
         // border:1px solid rgb(228, 227, 227);
@@ -47,13 +46,31 @@ page-about-us {
     }
     .cardProg:hover .item_img i{
         color:#fff;
-        background-color: #00a885;
+        background-color: #00a984;
     }
     ion-icon{
         font-size: 40px;
-        color: #298b74;
+        color: #00a984;
     }
     //   ion-row{
     //     background-color: #ebe8e8;
     // }
+    .btn-w{
+        color:#fff
+    }
+    .g-font{
+      font-family: 'Droid Arabic Kufi', serif;
+      color: #fff
+  }
+  .cs{
+      font-size: 0.5em;
+  }
+  .mu{
+      color:rgb(146, 145, 145);
+      font-size: 55% !important;
+  }
+  .mu2{
+    color:rgb(146, 145, 145);
+    font-size: 65% !important;
+}
 }
