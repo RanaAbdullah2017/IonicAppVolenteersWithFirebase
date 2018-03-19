@@ -8,8 +8,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
 
-    
+      refreshingSpinner="circles"
+      refreshingText="تحميل ...">
+    </ion-refresher-content>
+  </ion-refresher>
+ 
   <ion-card *ngFor="let needer of needers | async">
       <ion-row>
           <div class="styleType" style="padding-top: 10px;
@@ -49,5 +56,9 @@
       </ion-row>
     
     </ion-card>
-
+   
+   
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

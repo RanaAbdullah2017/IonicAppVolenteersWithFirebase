@@ -8,7 +8,7 @@ import { HomePage } from '../pages/home/home';
 // import { VolenteerPage } from '../pages/volenteer/volenteer';
 // import {VolunteerWorkPage } from '../pages/volunteer-work/volunteer-work';
 import {ContactUsPage } from '../pages/contact-us/contact-us';
-
+import {LogoutPage} from '../pages/logout/logout';
 import { Http } from '@angular/http';
 import { AppService } from './AppService.service';
 import { InitialPage } from '../pages/initial/initial';
@@ -26,7 +26,7 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 
 
 import { AngularFireStorageModule } from 'angularfire2/storage';
-
+import { IonicStorageModule } from '@ionic/storage';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyA9xhfiO3qONQzRkQd2ILsT2GSsbxe2ImE",
@@ -45,11 +45,13 @@ export const firebaseConfig = {
     HumStateRepPage,
     ContactUsPage,
     AboutUsPage,
-    AdvicePage
+    AdvicePage,
+    LogoutPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     HttpModule,
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -64,7 +66,8 @@ export const firebaseConfig = {
     HumStateRepPage,
     ContactUsPage,
     AboutUsPage,
-    AdvicePage
+    AdvicePage,
+    LogoutPage,
   ],
   providers: [
     StatusBar,

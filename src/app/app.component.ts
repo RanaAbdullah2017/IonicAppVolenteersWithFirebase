@@ -2,18 +2,17 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { HomePage } from '../pages/home/home';
 import { InitialPage } from '../pages/initial/initial';
 import { HumStateRepPage } from '../pages/hum-state-rep/hum-state-rep';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { AdvicePage } from '../pages/advice/advice';
-
+import { LogoutPage } from '../pages/logout/logout';
 
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 // import { VolunteerWorkPage } from '../pages/volunteer-work/volunteer-work';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Storage } from '@ionic/storage';
 
 
 
@@ -22,12 +21,23 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-
-  rootPage: any = InitialPage; //HomePage;
+  selectroot:any;
+  check:any;
+  rootPage: any;// = this.selectroot; //HomePage;
   
   pages: Array<{title: string, component: any, icon: string, md:string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private httpClient:HttpClientModule) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private httpClient:HttpClientModule,private storage: Storage) {
+   
+    this.storage.get('firsttime').then((val) => {
+      this.check=val;
+   if (this.check==='1'){this.rootPage=HomePage}
+      else{this.rootPage=InitialPage;}
+      });
+   
+   
+   
+   
     this.initializeApp();
     
 
@@ -36,7 +46,8 @@ export class MyApp {
       { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
       { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
-      { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"}
+      { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
+      { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
       
       
     ];

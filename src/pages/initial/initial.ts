@@ -5,6 +5,7 @@ import { Nav, Platform } from 'ionic-angular';
 // import { HomePage } from '../home/home';
 import { HomePage } from '../home/home';
 import { HumStateRepPage } from '../hum-state-rep/hum-state-rep';
+import { Storage } from '@ionic/storage';
 // import {Routes, RouterModule, Router} from "@angular/router";
 
 /**
@@ -21,15 +22,14 @@ import { HumStateRepPage } from '../hum-state-rep/hum-state-rep';
   templateUrl: 'initial.html',
 })
 export class InitialPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  check:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private storage: Storage) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad InitialPage');
-  }
+ 
   start(){
     this.navCtrl.setRoot(HomePage);
+    this.storage.set('firsttime','1');
     // this.n.push('HumStateRepPage');
   }
 }
