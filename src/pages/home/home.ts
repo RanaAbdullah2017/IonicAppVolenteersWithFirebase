@@ -32,7 +32,8 @@ y:number=5;
   
   }
   //Temporary way to load until find solution for infinte scorll 
-getposts(){ this.needers = this.afDb.list('volenteers', ref => ref.orderByKey().limitToLast(this.x)).valueChanges();
+getposts(){ 
+  this.needers = this.afDb.list('volenteers', ref => ref.orderByKey().limitToLast(this.x)).valueChanges();
 
 }
 
