@@ -1,0 +1,33 @@
+<ion-header>
+
+    <ion-navbar color="hu">
+      <button ion-button menuToggle>
+        <ion-icon name="menu" class="btn-w"></ion-icon>
+      </button>
+      <ion-title class="g-font">المعلومات الشخصية</ion-title>
+      
+        
+      
+    </ion-navbar>
+  
+  </ion-header>
+
+<ion-content padding>
+    <ion-list no-lines>
+        <ion-item>
+            <ion-label floating>الاسم الكامل</ion-label>
+            <ion-input #name type="text"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label floating>العنوان</ion-label>
+              <ion-input #address type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>الوظيفة</ion-label>
+                <ion-input #job type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <button (click)="updateProfile(name, address, job)" ion-button full>تحديث</button>
+              </ion-item>
+              </ion-list>
+</ion-content>

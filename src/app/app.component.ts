@@ -1,3 +1,4 @@
+import { RegisterPage } from './../pages/register/register';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -44,6 +45,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
+      { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
       { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
       { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},

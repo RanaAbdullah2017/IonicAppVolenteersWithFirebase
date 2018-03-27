@@ -1,3 +1,4 @@
+import { UpdateProfilePage } from './../pages/update-profile/update-profile';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -23,17 +24,19 @@ import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
-
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { IonicStorageModule } from '@ionic/storage';
+import { RegisterPage } from '../pages/register/register';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyA9xhfiO3qONQzRkQd2ILsT2GSsbxe2ImE",
-    authDomain: "volentdb.firebaseapp.com",
-    databaseURL: "https://volentdb.firebaseio.com",
-    storageBucket: "volentdb.appspot.com",
-    messagingSenderId: "577426367069"
+    apiKey: "AIzaSyCXC8PAGisO6QsSXjgV_ZeYH205Hyr6YB0",
+    authDomain: "volenteersdb-aaf27.firebaseapp.com",
+    databaseURL: "https://volenteersdb-aaf27.firebaseio.com",
+    projectId: "volenteersdb-aaf27",
+    storageBucket: "volenteersdb-aaf27.appspot.com",
+    messagingSenderId: "658906590515"
   
 
 };
@@ -47,6 +50,8 @@ export const firebaseConfig = {
     AboutUsPage,
     AdvicePage,
     LogoutPage,
+    RegisterPage,
+    UpdateProfilePage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +61,8 @@ export const firebaseConfig = {
     HttpClientModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -68,6 +74,8 @@ export const firebaseConfig = {
     AboutUsPage,
     AdvicePage,
     LogoutPage,
+    RegisterPage,
+    UpdateProfilePage
   ],
   providers: [
     StatusBar,
