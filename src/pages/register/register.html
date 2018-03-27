@@ -1,0 +1,50 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="hu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
+    </button>
+    <ion-title class="g-font">التسجيل</ion-title>
+    
+      
+    
+  </ion-navbar>
+
+</ion-header>
+<div id="captcha"></div>
+<ion-content padding>
+    
+  <ion-list no-lines *ngIf="!confirmStep">
+    <ion-item dir="ltr">
+      <ion-label>+964</ion-label>
+      <ion-input #phoneNumber (keyup)="phoneNumberChanged(phoneNumber)" type="number" max="11" min="11"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button (click)="confirmPhoneNumber(phoneNumber.value)"[disabled]="disableSubmit" ion-button full>ادخال</button>
+    </ion-item>
+    <ion-item>
+      يرجى ادخال الرقم الصحيح ..<br> حيث ستصلك رسالة تأكيد للرقم المدخل.
+    </ion-item>
+  </ion-list>
+
+   
+  <ion-list no-lines *ngIf="confirmStep">
+      <ion-item>
+        <ion-label>كود التحقق</ion-label>
+        <ion-input #confirm  type="number" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <button (click)="confirmCode(confirm.value)"  ion-button full>تأكيد</button>
+      </ion-item>  
+      <ion-item>
+          <button (click)="resendCode(confirm.value)"  ion-button full>ارسال الكود مرة اخرى</button>
+        </ion-item>
+        
+    </ion-list>
+</ion-content>
