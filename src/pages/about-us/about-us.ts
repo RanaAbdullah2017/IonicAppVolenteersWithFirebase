@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ModalController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DeveloperPage} from '../developer/developer';
 
 /**
  * Generated class for the AboutUsPage page.
@@ -15,7 +16,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AboutUsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -27,5 +28,8 @@ export class AboutUsPage {
 
         this.buttonClicked = !this.buttonClicked;
     }
-
+    developerModal() {
+      let modal = this.modalCtrl.create(DeveloperPage);
+      modal.present();
+    }
 }

@@ -20,6 +20,7 @@ import { AdvicePage } from '../pages/advice/advice';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import {DeveloperPage} from '../pages/developer/developer';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
@@ -46,6 +47,7 @@ export const firebaseConfig = {
     HomePage,
     InitialPage,
     HumStateRepPage,
+    DeveloperPage,
     ContactUsPage,
     AboutUsPage,
     AdvicePage,
@@ -74,6 +76,7 @@ export const firebaseConfig = {
     AboutUsPage,
     AdvicePage,
     LogoutPage,
+    DeveloperPage,
     RegisterPage,
     UpdateProfilePage
   ],
