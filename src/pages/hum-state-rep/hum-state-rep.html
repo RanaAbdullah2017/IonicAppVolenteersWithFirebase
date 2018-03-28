@@ -50,11 +50,14 @@
         value="{{fileToUpload}}" file-model="fileToUpload"
         set-file-data="fileToUpload = value;" 
         type="file" id="my_file" class="inputfile" />
-        <label for="my_file">تحميل صورة</label>
+        <label for="my_file"><ion-icon ios="ios-image" md="md-image"style="padding-left:5px;"></ion-icon>
+          اضافة صورة</label>
     
 
-    <button (click)="butsubmit(type, name, location,details)" ion-button round full color="hu">حفظ</button>
-
+    <button (click)="butsubmit(type, name, location,details)" ion-button round full color="hu">
+        <ion-icon ios="ios-send" md="md-send" color="white" style="padding-left:5px;padding-right:5px;"></ion-icon>
+       ارسال</button>
+       
     
 
 

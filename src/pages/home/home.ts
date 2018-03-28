@@ -16,9 +16,6 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class HomePage implements OnInit{
   public images:any=[];
   public needers: any;
-  
-x:number=5;
-y:number=5;
 
   constructor(public navCtrl: NavController,
               public http:Http,
@@ -33,7 +30,7 @@ y:number=5;
   }
   //Temporary way to load until find solution for infinte scorll 
 getposts(){ 
-  this.needers = this.afDb.list('volenteers', ref => ref.orderByKey().limitToLast(this.x)).valueChanges();
+  this.needers = this.afDb.list('volenteers', ref => ref.orderByKey()).valueChanges();
 
 }
 
@@ -50,18 +47,7 @@ getposts(){
   }
 
 
-  doInfinite(infiniteScroll) {
-    console.log('Begin async operation');
-//Temporary way to load until find solution for infinte scorll 
-    setTimeout(() => {
-     this.x=this.x+this.y;
-    this. getposts()
-
-      console.log('Async operation has ended');
-      infiniteScroll.complete();
-    }, 500);
-  }
-
+ 
 }
 
 
