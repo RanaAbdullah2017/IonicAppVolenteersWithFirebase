@@ -8,7 +8,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { RecaptchaVerifier, ConfirmationResult } from '@firebase/auth-types';
 import { LoadingController } from 'ionic-angular';
-
+import { HomePage } from '../home/home';
+import { Storage } from '@ionic/storage';
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -27,10 +28,24 @@ export class RegisterPage {
     public toastCtrl: ToastController,
     private afAuth: AngularFireAuth,
     public loadingCtrl: LoadingController,
-    private afDB: AngularFireDatabase) {
+    private afDB: AngularFireDatabase,private storage: Storage) {
   }
 
   ionViewDidLoad() {
+
+//check if user loggedin or not //
+    const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      if (!user) {
+        this.presentToast(user);
+        unsubscribe();
+      } else {
+        this.navCtrl.setRoot(HomePage);
+        unsubscribe();
+      }
+    });
+//end of checking if user loggedin or not //
+
+
     console.log('ionViewDidLoad RegisterPage');
 
 
@@ -89,6 +104,7 @@ export class RegisterPage {
 
     this.confirmationResult.confirm(code)
       .then(result => {
+        this.storage.set('loggedin','1');
         this.presentToast("تم تأكيد رقم الهاتف بنجاح");
         this.afDB
           .object('/users/' + this.afAuth.auth.currentUser.uid).update({
@@ -99,6 +115,7 @@ export class RegisterPage {
           });
         loader.dismiss();
         this.navCtrl.setRoot(UpdateProfilePage);
+        
       }).catch(error => {
         this.presentToast("الكود الذي ادخلته غير صحيح");
       })

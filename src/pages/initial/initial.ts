@@ -6,6 +6,7 @@ import { Nav, Platform } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { HumStateRepPage } from '../hum-state-rep/hum-state-rep';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 // import {Routes, RouterModule, Router} from "@angular/router";
 
 /**
@@ -23,7 +24,7 @@ import { Storage } from '@ionic/storage';
 })
 export class InitialPage {
   check:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private storage: Storage , public events: Events) {
   }
 
  

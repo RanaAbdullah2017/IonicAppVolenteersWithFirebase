@@ -24,6 +24,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   selectroot:any;
   check:any;
+  loggedin:any;
   rootPage: any;// = this.selectroot; //HomePage;
   
   pages: Array<{title: string, component: any, icon: string, md:string}>;
@@ -41,11 +42,13 @@ export class MyApp {
    
     this.initializeApp();
     
-
-    // used for an example of ngFor and navigation
+    this.storage.get('loggedin').then((val) => {
+      this.loggedin=val;
+   if (this.loggedin==='1'){
+     
     this.pages = [
       { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
-      { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
+     // { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
       { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
       { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
@@ -53,6 +56,22 @@ export class MyApp {
       
       
     ];
+
+   }
+      else{ this.pages = [
+        { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
+        { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
+        { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
+        { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
+        { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
+        // { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
+        
+        
+      ];}
+      });
+   
+    // used for an example of ngFor and navigation
+   
 
   }
 // { title: 'List', component: ListPage },

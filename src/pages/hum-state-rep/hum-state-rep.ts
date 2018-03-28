@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireStorage } from 'angularfire2/storage';
 import { HomePage } from '../home/home';
+import * as firebase from 'firebase/app';
+import { RegisterPage } from '../register/register';
 /**
  * Generated class for the HumStateRepPage page.
  *
@@ -24,7 +26,7 @@ export class HumStateRepPage {
   resp:any;
   name:string='';
   image1: any;
-
+loggedin:any=false;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,private toastCtrl: ToastController,
     public navParams: NavParams,
@@ -33,7 +35,23 @@ export class HumStateRepPage {
     private httpClient:HttpClient,
     private afDB: AngularFireDatabase,
     private afStorage: AngularFireStorage) {
+   
   }
+  ionViewDidLoad() {
+
+    //check if user loggedin or not //
+        const unsubscribe = firebase.auth().onAuthStateChanged(user => {
+          if (!user) {
+            this.navCtrl.setRoot(RegisterPage);
+            unsubscribe();
+          } else {
+         //   this.navCtrl.setRoot(HomePage);
+         console.log("User Loggedin")
+            unsubscribe();
+          }
+        });
+    //end of checking if user loggedin or not //
+      }
 ////write info into json file
   callPostData(Fname,Loc,Dir,Det)
   {
