@@ -30,7 +30,7 @@ export class HomePage implements OnInit{
   }
   //Temporary way to load until find solution for infinte scorll 
 getposts(){ 
-  this.needers = this.afDb.list('volenteers', ref => ref.orderByKey()).valueChanges();
+  this.needers = this.afDb.list('volenteers', ref => ref.orderByChild('sendDate')).valueChanges();
 
 }
 

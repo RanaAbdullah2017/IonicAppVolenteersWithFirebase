@@ -94,11 +94,18 @@ loading.percentageChanges().subscribe(p => console.log(p));
 
 loading.then(file => {  
    
-   
+  let  d = new Date();
+  let time = [d.getMonth()+1,
+              d.getDate(),
+              d.getFullYear()].join('/')+' '+
+             [d.getHours(),
+              d.getMinutes(),
+              d.getSeconds()].join(':');
     this.afDB.list('volenteers').push({
         
         
-        sendDate: Date.now(),
+        sendDate: 0- Date.now(),
+        "time":time,
         loca: location.value,
         type: type.value,
         name: name.value,
