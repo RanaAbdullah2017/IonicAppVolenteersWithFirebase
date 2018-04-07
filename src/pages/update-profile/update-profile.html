@@ -13,21 +13,21 @@
   </ion-header>
 
 <ion-content padding>
-    <ion-list no-lines>
-        <ion-item>
-            <ion-label floating>الاسم الكامل</ion-label>
-            <ion-input #name type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label floating>العنوان</ion-label>
-              <ion-input #address type="text"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label floating>الوظيفة</ion-label>
-                <ion-input #job type="text"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <button (click)="updateProfile(name, address, job)" ion-button full>تحديث</button>
-              </ion-item>
-              </ion-list>
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label floating>الاسم الكامل</ion-label>
+      <ion-input #name type="text" [value]="userService.user.fullName" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>العنوان</ion-label>
+      <ion-input #address type="text" [value]="userService.user.address"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>الوظيفة</ion-label>
+      <ion-input #job type="text" [value]="userService.user.job"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button (click)="updateProfile(name, address, job)" ion-button full>تحديث</button>
+    </ion-item>
+  </ion-list>
 </ion-content>

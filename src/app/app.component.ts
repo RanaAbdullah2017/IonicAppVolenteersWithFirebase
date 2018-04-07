@@ -1,3 +1,5 @@
+import { UserProvider } from './../providers/user/user';
+import { LoginPage } from './../pages/login/login';
 import { RegisterPage } from './../pages/register/register';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
@@ -14,6 +16,7 @@ import { ContactUsPage } from '../pages/contact-us/contact-us';
 // import { VolunteerWorkPage } from '../pages/volunteer-work/volunteer-work';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
+import { UpdateProfilePage } from '../pages/update-profile/update-profile';
 
 
 
@@ -29,7 +32,13 @@ export class MyApp {
   
   pages: Array<{title: string, component: any, icon: string, md:string}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, private httpClient:HttpClientModule,private storage: Storage) {
+  constructor(
+    public platform: Platform,
+     public statusBar: StatusBar,
+      public splashScreen: SplashScreen,
+       private httpClient:HttpClientModule,
+       private storage: Storage,
+      public userService: UserProvider) {
    
     this.storage.get('firsttime').then((val) => {
       this.check=val;
@@ -42,13 +51,15 @@ export class MyApp {
    
     this.initializeApp();
     
-    this.storage.get('loggedin').then((val) => {
-      this.loggedin=val;
-   if (this.loggedin==='1'){
+    this.userService.getUserFromStorage().then((user) => {
+      
+
+   if (user != null){
      
     this.pages = [
       { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
      // { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
+     { title: 'تعديل المعلومات الشخصية', component: UpdateProfilePage, icon: "ios-home" ,md:"md-home"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
       { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
       { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
@@ -60,6 +71,7 @@ export class MyApp {
    }
       else{ this.pages = [
         { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
+        { title: 'تسجيل الدخول', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
         { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
         { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
         { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
@@ -87,6 +99,13 @@ export class MyApp {
   openPage(page) {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
+    let params = {
+      pageName: page.title
+    };
+
+  
+
+
+    this.nav.setRoot(page.component, params);
   }
 }

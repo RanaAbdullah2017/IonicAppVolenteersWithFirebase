@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu" class="btn-w"></ion-icon>
     </button>
-    <ion-title class="g-font">التسجيل</ion-title>
+    <ion-title class="g-font">{{ pageName }}</ion-title>
     
       
     
@@ -26,7 +26,7 @@
       <ion-input #phoneNumber (keyup)="phoneNumberChanged(phoneNumber)" type="number" max="11" min="11"></ion-input>
     </ion-item>
     <ion-item>
-      <button (click)="confirmPhoneNumber(phoneNumber.value)"[disabled]="disableSubmit" ion-button full>ادخال</button>
+      <button (click)="sendConfirmationCode(phoneNumber.value)"[disabled]="disableSubmit" ion-button full>ادخال</button>
     </ion-item>
     <ion-item>
       يرجى ادخال الرقم الصحيح ..<br> حيث ستصلك رسالة تأكيد للرقم المدخل.

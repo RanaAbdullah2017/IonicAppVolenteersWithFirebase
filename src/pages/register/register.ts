@@ -1,3 +1,4 @@
+import { UserProvider } from './../../providers/user/user';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { UpdateProfilePage } from './../update-profile/update-profile';
 import { Component } from '@angular/core';
@@ -22,17 +23,21 @@ export class RegisterPage {
   phoneRecaptchaVerifier: firebase.auth.RecaptchaVerifier;
   confirmationResult: ConfirmationResult;
   phoneNumber: HTMLInputElement;
+  pageName: string;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public toastCtrl: ToastController,
     private afAuth: AngularFireAuth,
     public loadingCtrl: LoadingController,
-    private afDB: AngularFireDatabase,private storage: Storage) {
+    private afDB: AngularFireDatabase,
+    private storage: Storage,
+    public userService: UserProvider) {
   }
 
   ionViewDidLoad() {
-
+this.afAuth.auth.signOut();
+this.pageName = this.navParams.get('pageName');
 //check if user loggedin or not //
     const unsubscribe = firebase.auth().onAuthStateChanged(user => {
       if (!user) {
@@ -72,22 +77,19 @@ export class RegisterPage {
     }
   }
 
-  confirmPhoneNumber(phoneNumber) {
+  sendConfirmationCode(phoneNumber) {
     phoneNumber = "+964" + phoneNumber;
     let loader = this.loadingCtrl.create({
       content: "يرجى الانتظار...",
-      duration: 3000
-    });
+      duration: 2000
+    });      
+    
 
-    loader.present();
+    loader.present().then((_ => this.confirmStep = true));
+    this.userService.getUser(phoneNumber);
     this.afAuth.auth.signInWithPhoneNumber(phoneNumber, this.phoneRecaptchaVerifier)
       .then(confirmationResult => {
         this.confirmationResult = confirmationResult;
-        this.confirmStep = true;
-
-
-
-
       });
 
 
@@ -106,15 +108,27 @@ export class RegisterPage {
       .then(result => {
         this.storage.set('loggedin','1');
         this.presentToast("تم تأكيد رقم الهاتف بنجاح");
-        this.afDB
-          .object('/users/' + this.afAuth.auth.currentUser.uid).update({
+
+        if(this.userService.user == null){
+          this.afDB
+          .object('/users/' + "+964" + this.phoneNumber.value).update({
             phoneNumber: "+964" + this.phoneNumber.value,
             confirmed: true,
-            registerDate: firebase.database.ServerValue.TIMESTAMP
+            registerDate: firebase.database.ServerValue.TIMESTAMP,
+            uid: this.afAuth.auth.currentUser.uid
 
+          }).then(_ => {
+            this.navCtrl.setRoot(UpdateProfilePage);
+            loader.dismiss();
           });
-        loader.dismiss();
-        this.navCtrl.setRoot(UpdateProfilePage);
+        }else {
+          this.navCtrl.setRoot(HomePage);
+          loader.dismiss();
+        }
+       
+        
+        
+       
         
       }).catch(error => {
         this.presentToast("الكود الذي ادخلته غير صحيح");
@@ -122,7 +136,7 @@ export class RegisterPage {
   }
 
   resendCode() {
-    this.confirmPhoneNumber(this.phoneNumber.value);
+    this.sendConfirmationCode(this.phoneNumber.value);
   }
 
 

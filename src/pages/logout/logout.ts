@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { InitialPage } from '../initial/initial';
 import { Storage } from '@ionic/storage';
 import * as firebase from 'firebase/app';
+import { UserProvider } from '../../providers/user/user';
 /**
  * Generated class for the LogoutPage page.
  *
@@ -17,11 +18,16 @@ import * as firebase from 'firebase/app';
 })
 export class LogoutPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private storage:Storage) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage:Storage,
+    public userService: UserProvider) {
   }
 
   ionViewDidLoad() {
     this.storage.clear();
+    this.userService.user = null;
     firebase.auth().signOut();
     this.navCtrl.setRoot(InitialPage);
   }

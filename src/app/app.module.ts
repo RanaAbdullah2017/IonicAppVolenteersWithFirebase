@@ -30,6 +30,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
+import { ServicesUserProvider } from '../providers/services-user/services-user';
+import { UserProvider } from '../providers/user/user';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCXC8PAGisO6QsSXjgV_ZeYH205Hyr6YB0",
@@ -85,7 +87,9 @@ export const firebaseConfig = {
     SplashScreen,
     AppService,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ServicesUserProvider,
+    UserProvider
   ]
 })
 export class AppModule {}
