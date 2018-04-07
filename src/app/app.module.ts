@@ -21,7 +21,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
 import {DeveloperPage} from '../pages/developer/developer';
-
+import {FeedbackPage} from '../pages/feedback/feedback'
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
@@ -55,6 +55,7 @@ export const firebaseConfig = {
     AdvicePage,
     LogoutPage,
     RegisterPage,
+    FeedbackPage,
     UpdateProfilePage
   ],
   imports: [
@@ -80,6 +81,7 @@ export const firebaseConfig = {
     LogoutPage,
     DeveloperPage,
     RegisterPage,
+    FeedbackPage,
     UpdateProfilePage
   ],
   providers: [
