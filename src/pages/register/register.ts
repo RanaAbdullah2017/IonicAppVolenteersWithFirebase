@@ -24,6 +24,7 @@ export class RegisterPage {
   confirmationResult: ConfirmationResult;
   phoneNumber: HTMLInputElement;
   pageName: string;
+  userExists: boolean = false;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -86,7 +87,14 @@ this.pageName = this.navParams.get('pageName');
     
 
     loader.present().then((_ => this.confirmStep = true));
-    this.userService.getUser(phoneNumber);
+    this.userService.checkUserExists(phoneNumber).subscribe(user => {
+      if(user == null)
+        this.userExists = false;
+      else {
+        this.userExists = true;
+       
+      };
+    })
     this.afAuth.auth.signInWithPhoneNumber(phoneNumber, this.phoneRecaptchaVerifier)
       .then(confirmationResult => {
         this.confirmationResult = confirmationResult;
@@ -108,20 +116,27 @@ this.pageName = this.navParams.get('pageName');
       .then(result => {
         this.storage.set('loggedin','1');
         this.presentToast("تم تأكيد رقم الهاتف بنجاح");
-
-        if(this.userService.user == null){
-          this.afDB
-          .object('/users/' + "+964" + this.phoneNumber.value).update({
-            phoneNumber: "+964" + this.phoneNumber.value,
+        let phoneNumber = "+964" + this.phoneNumber.value
+        if(this.userExists == false){
+          
+          let user = {
+            phoneNumber: phoneNumber,
             confirmed: true,
             registerDate: firebase.database.ServerValue.TIMESTAMP,
-            uid: this.afAuth.auth.currentUser.uid
+            uid: this.afAuth.auth.currentUser.uid,
+            isExists: true
+          };
 
-          }).then(_ => {
+          this.userService.user = user;
+          this.afDB
+          .object('/users/' + phoneNumber).update(user).then(_ => {
+            this.userService.getUser("+964" + this.phoneNumber.value);
             this.navCtrl.setRoot(UpdateProfilePage);
             loader.dismiss();
+
           });
         }else {
+          this.userService.getUser("+964" + this.phoneNumber.value);
           this.navCtrl.setRoot(HomePage);
           loader.dismiss();
         }

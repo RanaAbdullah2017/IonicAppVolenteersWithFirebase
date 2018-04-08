@@ -1,5 +1,4 @@
 import { UserProvider } from './../providers/user/user';
-import { LoginPage } from './../pages/login/login';
 import { RegisterPage } from './../pages/register/register';
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';

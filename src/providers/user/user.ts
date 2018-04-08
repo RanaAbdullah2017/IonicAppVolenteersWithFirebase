@@ -27,6 +27,10 @@ export class UserProvider {
                  
                 });
   }
+  checkUserExists(phoneNumber){
+    return this.afDB.object('/users/' + phoneNumber + '/isExists')
+               .valueChanges();
+  }
 
 
 getUserFromStorage(){
