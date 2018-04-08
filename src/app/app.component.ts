@@ -10,6 +10,7 @@ import { HumStateRepPage } from '../pages/hum-state-rep/hum-state-rep';
 import { AboutUsPage } from '../pages/about-us/about-us';
 import { AdvicePage } from '../pages/advice/advice';
 import { LogoutPage } from '../pages/logout/logout';
+import { FeedbackPage } from '../pages/feedback/feedback';
 
 import { ContactUsPage } from '../pages/contact-us/contact-us';
 // import { VolunteerWorkPage } from '../pages/volunteer-work/volunteer-work';
@@ -62,6 +63,7 @@ export class MyApp {
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
       { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
       { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
+      { title: 'شاركنا برأيك', component: FeedbackPage, icon: "ios-thumbs-up",md: "md-thumbs-up"},
       { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
       
       
@@ -71,10 +73,11 @@ export class MyApp {
       else{ this.pages = [
         { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
         { title: 'تسجيل الدخول', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
-        { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
         { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
         { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
         { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
+        { title: 'شاركنا برأيك', component: FeedbackPage, icon: "ios-thumbs-up",md: "md-thumbs-up"},
+
         // { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
         
         

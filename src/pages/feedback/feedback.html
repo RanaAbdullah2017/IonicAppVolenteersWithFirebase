@@ -1,0 +1,35 @@
+<ion-header >
+  <ion-navbar color="hu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
+    </button>
+    <ion-title class="g-font">شاركنا برأيك</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="./assets/imgs/feedback.jpg"/>
+    <ion-card-content>
+      <ion-card-title>
+        رأيك يهمنا
+        </ion-card-title>
+      <p>
+        ساعدنا بتطوير التطبيق وانطينا رآيك واكتبلنا جوه اذا كانت عندك مشكلة بالتطبيق او انطينا فكرة ممكن تطور التطبيق
+      </p>
+    </ion-card-content>
+  </ion-card>
+<ion-list >
+  <ion-item>
+    <ion-label stacked style="font-size: 16px">عنوان الموضوع </ion-label>
+    <ion-input type="text" [(ngModel)]="feedback_title"></ion-input>
+</ion-item>
+<ion-item>
+    <ion-label stacked style="font-size: 16px">التفاصيل</ion-label>
+    <ion-textarea type="textarea" [(ngModel)]="feedback_subject"></ion-textarea>
+</ion-item>
+</ion-list>
+<button side="right" color="hu" ion-button block (click)="sendfeedback(feedback_title,feedback_subject)">ارسال </button>
+
+</ion-content>
