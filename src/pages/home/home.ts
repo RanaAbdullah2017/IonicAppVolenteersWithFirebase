@@ -21,22 +21,22 @@ export class HomePage implements OnInit{
               public http:Http,
               public dataService:AppService,
               private afDb: AngularFireDatabase) {
-              
+
   }
-////read and view data from database 
+////read and view data from database
   ngOnInit(){
    this.getposts();
-  
+
   }
-  //Temporary way to load until find solution for infinte scorll 
-getposts(){ 
+  //Temporary way to load until find solution for infinte scorll
+getposts(){
   this.needers = this.afDb.list('volenteers', ref => ref.orderByChild('sendDate')).valueChanges();
 
 }
 
 
 
- 
+
   doRefresh(refresher) {this.getposts()
     console.log('Begin async operation', refresher);
 
@@ -47,7 +47,7 @@ getposts(){
   }
 
 
- 
+
 }
 
 

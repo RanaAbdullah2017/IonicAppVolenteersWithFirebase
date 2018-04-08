@@ -16,25 +16,25 @@
       refreshingText="تحميل ...">
     </ion-refresher-content>
   </ion-refresher>
- 
+
   <ion-card *ngFor="let needer of needers | async">
       <ion-row>
           <div class="styleType" style="padding-top: 10px;
-          padding-bottom: 10px"><span>نوع الحالة : 
+          padding-bottom: 10px"><span>نوع الحالة :
           {{needer.type}}</span>
         </div>
         <ion-avatar item-start>
           <!-- <img src={{needer.image}}> -->
         </ion-avatar>
       </ion-row>
-     
+
           <img  [src]="needer.image">
-        
-  
+
+
       <ion-card-content>
         <p>{{ needer.det }}</p>
       </ion-card-content>
-    
+
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
@@ -47,16 +47,27 @@
               <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
             <div><span class="styleType">المحافظة :</span>  {{needer.loca}}  </div>
           </button>
+              <div><span class="styleType2">اقرب نقطة دالة :</span>{{needer.add1}}</div>
         </ion-col>
+        -
+        <!--<ion-card-content>-->
+       <!-- </ion-card-content>-->
+        <!--<ion-col>
+          <button ion-button icon-left clear small>
+              <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
+            <div><span class="styleType">اقرب نقطة دالة :</span>  {{needer.add1}}  </div>
+          </button>
+        </ion-col>-->
+
         <!-- <ion-col center text-center>
           <ion-note>
             11h ago
           </ion-note>
         </ion-col> -->
       </ion-row>
-    
+
     </ion-card>
-   
-   
-   
+
+
+
 </ion-content>

@@ -6,7 +6,7 @@
       <ion-icon name="menu" class="btn-w"></ion-icon>
     </button>
     <ion-title  class="g-font">التبليغ عن الحالات الإنسانية</ion-title>
-    
+
   </ion-navbar>
 
 </ion-header>
@@ -16,52 +16,81 @@
     <ion-item>
         <ion-label>نوع الحالة الإنسانية</ion-label>
         <ion-select #type   (change)="selectItem($event)">
-          <ion-option value="p">فقير</ion-option>
-          <ion-option value="n">نازح</ion-option>
-          <ion-option value="s">مريض</ion-option>
-          <ion-option value="k">كوارث</ion-option>
+          <ion-option value="فقير">فقير</ion-option>
+          <ion-option value="نازح">نازح</ion-option>
+          <ion-option value="مريض">مريض</ion-option>
+          <ion-option value="كوارث">كوارث</ion-option>
         </ion-select>
-        
+
       </ion-item>
-    
-      
+
+
   <ion-item>
     <ion-label stacked style="font-size: 16px">اسمك الثلاثي</ion-label>
-    <ion-input   type="text" #name ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label stacked style="font-size: 16px">موقع الحالة الإنسانية</ion-label>
-    <ion-input   type="text"  #location  ></ion-input>
+    <ion-input   type="text" #name3 ></ion-input>
   </ion-item>
 
   <ion-item>
-      <ion-label stacked style="font-size: 16px">أقرب نقطة دالة</ion-label>
-      <ion-input  type="text"   ></ion-input>
-    </ion-item>
+    <ion-label>المحافظة</ion-label>
+    <ion-select #location   (change)="selectItem($event)">
+      <ion-option value="Erbil">أربيل</ion-option>
+      <ion-option value="Al_Anbar">الانبار</ion-option>
+      <ion-option value="Babil">بابل</ion-option>
+      <ion-option value="Basra">البصرة</ion-option>
+      <ion-option value="Baghdad">بغداد</ion-option>
+      <ion-option value="Dohuk">دهوك</ion-option>
+      <ion-option value="Diyala">ديالى</ion-option>
+      <ion-option value="Sulaymaniyah">السليمانيه</ion-option>
+      <ion-option value="Saladin">صلاح الدين</ion-option>
+      <ion-option value="Al-Qādisiyyah">القادسية</ion-option>
+      <ion-option value="Karbala">كربلاء</ion-option>
+      <ion-option value="Kirkuk">كركوك</ion-option>
+      <ion-option value="Muthanna">المثنى</ion-option>
+      <ion-option value="Maysan">ميسان</ion-option>
+      <ion-option value="Dhi_Qar">الناصرية</ion-option>
+      <ion-option value="Najaf">النجف</ion-option>
+      <ion-option value="Nineveh">نينوى</ion-option>
+      <ion-option value="Wasit">واسط</ion-option>
+    </ion-select>
+
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label stacked style="font-size: 16px">أقرب نقطة دالة</ion-label>
+    <ion-input  type="text" #add1  ></ion-input>
+  </ion-item>
+
+  <!--<ion-item>
+    <ion-label stacked style="font-size: 16px">موقع الحالة الإنسانية</ion-label>
+    <ion-input   type="text"  #location  ></ion-input>
+  </ion-item>-->
+
+
   <ion-item>
     <ion-label stacked style="font-size: 16px">شرح عن الحالة الإنسانية</ion-label>
     <ion-input  type="text" #details  ></ion-input>
   </ion-item>
   <ion-item>
       <ion-label stacked style="font-size: 16px">توثيق الحالة الإنسانية (بالصور)</ion-label>
-      
+
     </ion-item>
     <input (change)="image1Change($event)" accept="image/*" name="file" ng-value="fileToUpload"
         value="{{fileToUpload}}" file-model="fileToUpload"
-        set-file-data="fileToUpload = value;" 
+        set-file-data="fileToUpload = value;"
         type="file" id="my_file" class="inputfile" />
         <label for="my_file" style="width:60%"><ion-icon ios="ios-image" md="md-image"style="padding-left:15px;"></ion-icon>
           اضافة صورة</label>
-    
 
-    <button (click)="butsubmit(type, name, location,details)" ion-button round full color="hu">
+
+    <button (click)="butsubmit(type, name3, location,add1,details)" ion-button round full color="hu">
         <ion-icon ios="ios-send" md="md-send" color="white" style="padding-left:5px;padding-right:5px;"></ion-icon>
        ارسال</button>
-       
-    
+
+
 
 
     <ion-input type="text" (keyup)="onNameKeyUp($event)"></ion-input>
-  
-  
+
+
 </ion-content>

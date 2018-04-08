@@ -35,7 +35,7 @@ loggedin:any=false;
     private httpClient:HttpClient,
     private afDB: AngularFireDatabase,
     private afStorage: AngularFireStorage) {
-   
+
   }
   ionViewDidLoad() {
 
@@ -59,7 +59,7 @@ loggedin:any=false;
       p.then(data => {
         console.log("Received");
         this.resp=JSON.stringify(data.JSON().data);
-        
+
       });
   }
   onNameKeyUp(event: any){
@@ -82,18 +82,18 @@ image1Change(event){
     this.image1 = event.target.files[0];
 }
 ///save data in firebase
-butsubmit(type, name, location,  details){
+butsubmit(type, name3, location, add1, details){
     let loadingsppiner = this.loadingCtrl.create({
         content: 'يرجى الانتظار ...'
       });
-    
+
       loadingsppiner.present();
 
 let loading = this.afStorage.upload(Date.now() + this.image1.name, this.image1);
 loading.percentageChanges().subscribe(p => console.log(p));
 
-loading.then(file => {  
-   
+loading.then(file => {
+
   let  d = new Date();
   let time = [d.getMonth()+1,
               d.getDate(),
@@ -102,36 +102,38 @@ loading.then(file => {
               d.getMinutes(),
               d.getSeconds()].join(':');
     this.afDB.list('volenteers').push({
-        
-        
+
+
         sendDate: 0- Date.now(),
         "time":time,
         loca: location.value,
         type: type.value,
-        name: name.value,
+        name: name3.value,
         det: details.value,
+        add1: add1.value,
         image: file.downloadURL
-        
+
     }).then(_ => {
-        
+
         console.log('success')
         location.value = '';
         type.value = '';
-        name.value = '';
+        name3.value = '';
         details.value = '';
+        add1.value='';
         setTimeout(() => {
             loadingsppiner.dismiss();
-            this.navCtrl.setRoot(HomePage); 
+            this.navCtrl.setRoot(HomePage);
           }, 2000);
-        
+
     }, error =>{  setTimeout(() => {
         loadingsppiner.dismiss();
         this.errortoast()
       }, 5000);
      });
 
-   
-     
+
+
 }).catch(err=>{ setTimeout(() => {
     loadingsppiner.dismiss();
     this.errortoast()
@@ -144,11 +146,11 @@ errortoast(){
         duration: 3000,
         position: 'bottom'
       });
-    
+
       toast.onDidDismiss(() => {
-       
+
       });
-    
+
       toast.present();
 }
 
