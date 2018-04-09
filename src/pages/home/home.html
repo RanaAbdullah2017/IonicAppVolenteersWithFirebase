@@ -17,11 +17,11 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let needer of needers | async">
+  <ion-card *ngFor="let needer of needers">
       <ion-row>
           <div class="styleType" style="padding-top: 10px;
           padding-bottom: 10px"><span>نوع الحالة :
-          {{needer.type}}</span>
+          {{ needer.type }}</span>
         </div>
         <ion-avatar item-start>
           <!-- <img src={{needer.image}}> -->
@@ -32,22 +32,22 @@
 
 
       <ion-card-content>
-        <p>{{ needer.det }}</p>
+        <p>{{ needer.details }}</p>
       </ion-card-content>
 
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
               <ion-icon ios="md-calendar" md="md-calendar" large></ion-icon>
-            <div><span class="styleType"> تأريخ :</span> {{needer.time}} </div>
+            <div><span class="styleType"> تأريخ :</span> {{ needer.date }} </div>
           </button>
         </ion-col>
         <ion-col>
           <button ion-button icon-left clear small>
               <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
-            <div><span class="styleType">المحافظة :</span>  {{needer.loca}}  </div>
+            <div><span class="styleType">المحافظة :</span>  {{ needer.city }}  </div>
           </button>
-              <div><span class="styleType2">اقرب نقطة دالة :</span>{{needer.add1}}</div>
+              <div><span class="styleType2">اقرب نقطة دالة :</span>{{ needer.address }}</div>
         </ion-col>
         -
         <!--<ion-card-content>-->

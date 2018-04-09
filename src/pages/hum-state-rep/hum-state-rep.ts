@@ -1,5 +1,6 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,LoadingController,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,LoadingController,ToastController, AlertController } from 'ionic-angular';
 import { AppService } from '../../app/AppService.service';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -10,6 +11,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
 import { HomePage } from '../home/home';
 import * as firebase from 'firebase/app';
 import { RegisterPage } from '../register/register';
+import { UserProvider } from '../../providers/user/user';
 /**
  * Generated class for the HumStateRepPage page.
  *
@@ -25,16 +27,17 @@ import { RegisterPage } from '../register/register';
 export class HumStateRepPage {
   resp:any;
   name:string='';
-  image1: any;
-loggedin:any=false;
+  image: any;
+  loggedin:any=false;
+
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController,private toastCtrl: ToastController,
     public navParams: NavParams,
-    public XService:AppService,
-    public http:Http ,
-    private httpClient:HttpClient,
     private afDB: AngularFireDatabase,
-    private afStorage: AngularFireStorage) {
+    private afStorage: AngularFireStorage,
+    private afAuth: AngularFireAuth,
+    private user: UserProvider,
+    public alertCtrl: AlertController) {
 
   }
   ionViewDidLoad() {
@@ -46,98 +49,124 @@ loggedin:any=false;
             unsubscribe();
           } else {
          //   this.navCtrl.setRoot(HomePage);
-         console.log("User Loggedin")
+        // console.log("User Loggedin")
             unsubscribe();
           }
         });
     //end of checking if user loggedin or not //
       }
-////write info into json file
-  callPostData(Fname,Loc,Dir,Det)
-  {
-      let p=this.XService.postNeeders(Fname,Loc,Dir,Det);
-      p.then(data => {
-        console.log("Received");
-        this.resp=JSON.stringify(data.JSON().data);
 
+imageInputChange(event){
+   
+
+    let image = event.target.files[0];
+
+    if(image == null)
+      return;
+
+    if((image.size/1024) > 250){
+      this.resizeImage(image, 750, 750).then(image => {
+        this.presentToast('لقد اخترت صورة ذات حجم اكبر من المسموح به سيتم تغيير حجمها');
+        this.image = image;
       });
-  }
-  onNameKeyUp(event: any){
-    this.name=event.target.value;
+    } else this.image = event.target.files[0];
 }
-////read json file from https
-//getProfile(){
-  //  console.log(this.name);
-   // let url:any;
-   // var javascriptCallout=this.httpClient.get('https://my-json-server.typicode.com/techsithgit/json-faker-directory/profiles')
-  //  .subscribe(
-  //      (data:any[]) => {
-   //         console.log(data);
-  //      }
-//    );
-//}
-///save images
-image1Change(event){
-    console.log(event.target.files[0]);
-    this.image1 = event.target.files[0];
-}
+
 ///save data in firebase
-butsubmit(type, name3, location, add1, details){
+submit(type, fullname, city, address, details){
+
+
+    if(type.value.length <= 0){
+      this.presentToast('يرجى اختيار نوع الحالة');
+      return;
+    }
+      
+
+    if(fullname.value.length <= 10){
+      this.presentToast('يجب ان لا يقل الاسم عن 10 حروف');
+      return;
+    }
+    
+    if(city.value.length <= 0){
+      this.presentToast('يرجى اختيار المحافظة');
+      return;
+    }
+
+    
+    if(address.value.length <= 10){
+      this.presentToast('يجب ان لا يقل النقطة الدالة عن 10 حروف');
+      return;
+    }
+
+    if(details.value.length <= 25){
+      this.presentToast('يجب ان لا يقل شرح الحالة عن 25 حرف');
+      return;
+    }
+
+
+    if(this.image == null){
+      this.presentToast('يجب اختيار صورة');
+      return;
+    }
+
     let loadingsppiner = this.loadingCtrl.create({
         content: 'يرجى الانتظار ...'
       });
 
-      loadingsppiner.present();
-
-let loading = this.afStorage.upload(Date.now() + this.image1.name, this.image1);
-loading.percentageChanges().subscribe(p => console.log(p));
-
-loading.then(file => {
-
-  let  d = new Date();
-  let time = [d.getMonth()+1,
-              d.getDate(),
-              d.getFullYear()].join('/')+' '+
-             [d.getHours(),
-              d.getMinutes(),
-              d.getSeconds()].join(':');
-    this.afDB.list('volenteers').push({
+    loadingsppiner.present();
+    let path = 'images/' + this.afAuth.auth.currentUser.uid + '/' + Date.now();
+    let uploadTask = this.afStorage.upload(path, this.image);
 
 
-        sendDate: 0- Date.now(),
-        "time":time,
-        loca: location.value,
+    uploadTask.then(file => {
+
+      this.afDB.list('notifications').push({
+        time: firebase.database.ServerValue.TIMESTAMP,
+        city: city.value,
         type: type.value,
-        name: name3.value,
-        det: details.value,
-        add1: add1.value,
-        image: file.downloadURL
+        fullname: fullname.value,
+        details: details.value,
+        address: address.value,
+        image: file.downloadURL,
+        image_path: path,
+        active: false,
+        userUID: this.afAuth.auth.currentUser.uid
 
-    }).then(_ => {
+      }).then(_ => {
 
-        console.log('success')
-        location.value = '';
-        type.value = '';
-        name3.value = '';
-        details.value = '';
-        add1.value='';
-        setTimeout(() => {
-            loadingsppiner.dismiss();
-            this.navCtrl.setRoot(HomePage);
-          }, 2000);
-
-    }, error =>{  setTimeout(() => {
+        let alert = this.alertCtrl.create({
+          title: 'تم الارسال بنجاح',
+          subTitle: 'شكراً لك للابلاغ ... سيتم نشره بعد التحقق',
+          buttons: ['موافق']
+        });
+        alert.present();
+        city.value = null;
+        type.value = null;
+        fullname.value = null;
+        details.value = null;
+        address.value = null;
+        this.image = null;
         loadingsppiner.dismiss();
-        this.errortoast()
-      }, 5000);
-     });
+
+        this.user.getUserFromStorage().then(user => {
+          this.afDB.database
+            .ref('users/' + user.phoneNumber + '/no_of_notifications')
+            .transaction(noOfNotifications => {
+              return noOfNotifications + 1;
+            })
+        })
+
+      }, error => {
+        this.presentToast('حدث خطأ ما يرجى اعادة الارسال لاحقاً');
+        loadingsppiner.dismiss();
+      });
 
 
 
-}).catch(err=>{ setTimeout(() => {
-    loadingsppiner.dismiss();
-    this.errortoast()
-  }, 5000);})
+    }).catch(err => {
+      loadingsppiner.dismiss();
+      this.presentToast('حدث خطأ ما يرجى اعادة الارسال لاحقاً');
+    })
 
 }
 errortoast(){
@@ -153,5 +182,52 @@ errortoast(){
 
       toast.present();
 }
+
+presentToast(msg){
+  let toast = this.toastCtrl.create({
+    message: msg,
+    duration: 3000,
+    position: 'bottom'
+  });
+
+  toast.present();
+}
+ resizeImage(file:File, maxWidth:number, maxHeight:number):Promise<Blob> {
+  return new Promise((resolve, reject) => {
+      let image = new Image();
+      image.src = URL.createObjectURL(file);
+      image.onload = () => {
+          let width = image.width;
+          let height = image.height;
+          
+          if (width <= maxWidth && height <= maxHeight) {
+              resolve(file);
+          }
+
+          let newWidth;
+          let newHeight;
+
+          if (width > height) {
+              newHeight = height * (maxWidth / width);
+              newWidth = maxWidth;
+          } else {
+              newWidth = width * (maxHeight / height);
+              newHeight = maxHeight;
+          }
+
+          let canvas = document.createElement('canvas');
+          canvas.width = newWidth;
+          canvas.height = newHeight;
+
+          let context = canvas.getContext('2d');
+
+          context.drawImage(image, 0, 0, newWidth, newHeight);
+
+          canvas.toBlob(resolve, file.type);
+      };
+      image.onerror = reject;
+  });
+}
+
 
 }

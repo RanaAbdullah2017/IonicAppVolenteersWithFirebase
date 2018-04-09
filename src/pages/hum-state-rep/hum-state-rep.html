@@ -27,13 +27,13 @@
 
   <ion-item>
     <ion-label stacked style="font-size: 16px">اسمك الثلاثي</ion-label>
-    <ion-input   type="text" #name3 ></ion-input>
+    <ion-input   type="text" #fullname ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label>المحافظة</ion-label>
-    <ion-select #location   (change)="selectItem($event)">
-      <ion-option value="Erbil">أربيل</ion-option>
+    <ion-select #city   (change)="selectItem($event)">
+      <ion-option value="Erbil">اربيل</ion-option>
       <ion-option value="Al_Anbar">الانبار</ion-option>
       <ion-option value="Babil">بابل</ion-option>
       <ion-option value="Basra">البصرة</ion-option>
@@ -58,7 +58,7 @@
 
   <ion-item>
     <ion-label stacked style="font-size: 16px">أقرب نقطة دالة</ion-label>
-    <ion-input  type="text" #add1  ></ion-input>
+    <ion-input  type="text" #address  ></ion-input>
   </ion-item>
 
   <!--<ion-item>
@@ -75,7 +75,7 @@
       <ion-label stacked style="font-size: 16px">توثيق الحالة الإنسانية (بالصور)</ion-label>
 
     </ion-item>
-    <input (change)="image1Change($event)" accept="image/*" name="file" ng-value="fileToUpload"
+    <input (change)="imageInputChange($event)" accept="image/*" name="file" ng-value="fileToUpload"
         value="{{fileToUpload}}" file-model="fileToUpload"
         set-file-data="fileToUpload = value;"
         type="file" id="my_file" class="inputfile" />
@@ -83,14 +83,11 @@
           اضافة صورة</label>
 
 
-    <button (click)="butsubmit(type, name3, location,add1,details)" ion-button round full color="hu">
+    <button (click)="submit(type, fullname, city, address, details)" ion-button round full color="hu">
         <ion-icon ios="ios-send" md="md-send" color="white" style="padding-left:5px;padding-right:5px;"></ion-icon>
        ارسال</button>
 
 
-
-
-    <ion-input type="text" (keyup)="onNameKeyUp($event)"></ion-input>
 
 
 </ion-content>
