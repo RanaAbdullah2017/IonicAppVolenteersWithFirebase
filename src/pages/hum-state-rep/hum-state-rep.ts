@@ -120,7 +120,7 @@ submit(type, fullname, city, address, details){
 
     uploadTask.then(file => {
 
-      this.afDB.list('notifications').push({
+      this.afDB.list('notifications_approved').push({
         time: firebase.database.ServerValue.TIMESTAMP,
         city: city.value,
         type: type.value,
@@ -129,7 +129,6 @@ submit(type, fullname, city, address, details){
         address: address.value,
         image: file.downloadURL,
         image_path: path,
-        active: false,
         userUID: this.afAuth.auth.currentUser.uid
 
       }).then(_ => {

@@ -17,7 +17,7 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let needer of needers">
+  <ion-card *ngFor="let needer of needers | async">
       <ion-row>
           <div class="styleType" style="padding-top: 10px;
           padding-bottom: 10px"><span>نوع الحالة :

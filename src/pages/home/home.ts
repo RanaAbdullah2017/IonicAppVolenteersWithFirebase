@@ -30,20 +30,16 @@ export class HomePage implements OnInit{
   }
   //Temporary way to load until find solution for infinte scorll
 getposts(){
-  this.afDb.list('notifications', ref => {
-    return ref.orderByChild('active').equalTo(true).limitToFirst(50);
+  this.needers = this.afDb.list('notifications_approved', ref => {
+    return ref.orderByChild('time').limitToLast(50);
   }).valueChanges().map(values => {
-    return values.map(value => {
+    return values.reverse().map(value => {
       
       let date = new Date(value.time);
       value.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
      
-      
-
       return value;
     })
-  }).subscribe(data => {
-    this.needers = data.reverse();
   });
 
 }
