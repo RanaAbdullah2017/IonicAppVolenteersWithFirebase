@@ -33,15 +33,29 @@ getposts(){
   this.needers = this.afDb.list('notifications_approved', ref => {
     return ref.orderByChild('time').limitToLast(50);
   }).valueChanges().map(values => {
-    return values.reverse().map(value => {
+    return values.reverse().map((value: Notification) => {
+
+        let date = new Date(value.time);
+        value.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
       
-      let date = new Date(value.time);
-      value.date = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+      
      
       return value;
     })
   });
 
+  interface Notification{
+    address: string;
+    city: string;
+    date: string;
+    details: string;
+    fullname: string;
+    image: string;
+    image_path: string;
+    time: number;
+    type: string;
+    userUID: string;
+  }
 }
 
 

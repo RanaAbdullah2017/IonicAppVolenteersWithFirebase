@@ -66,7 +66,7 @@ imageInputChange(event){
 
     if((image.size/1024) > 250){
       this.resizeImage(image, 750, 750).then(image => {
-        this.presentToast('لقد اخترت صورة ذات حجم اكبر من المسموح به سيتم تغيير حجمها');
+        this.presentToast('لقد اخترت صورة ذات حجم اكبر من المسموح به سيتم تقليل دقتها');
         this.image = image;
       });
     } else this.image = event.target.files[0];
@@ -120,7 +120,7 @@ submit(type, fullname, city, address, details){
 
     uploadTask.then(file => {
 
-      this.afDB.list('notifications_approved').push({
+      this.afDB.list('notifications_not_approved').push({
         time: firebase.database.ServerValue.TIMESTAMP,
         city: city.value,
         type: type.value,
