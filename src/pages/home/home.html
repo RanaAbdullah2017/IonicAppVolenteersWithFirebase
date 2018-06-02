@@ -1,4 +1,5 @@
 <ion-header >
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
   <ion-navbar color="hu">
     <button ion-button menuToggle>
       <ion-icon name="menu" class="btn-w"></ion-icon>
@@ -17,7 +18,7 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let needer of needers | async">
+  <ion-card style="margin-right: 10px; margin-bottom:20px;" *ngFor="let needer of needers | async">
       <ion-row>
           <div class="styleType" style="padding-top: 10px;
           padding-bottom: 10px"><span>نوع الحالة :
@@ -32,42 +33,47 @@
 
 
       <ion-card-content>
+          <!-- <span class="card-title activator grey-text text-darken-4">المحافظة:  <i class="material-icons left">more_vert</i></span> -->
         <p>{{ needer.details }}</p>
       </ion-card-content>
 
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-left clear small>
-              <ion-icon ios="md-calendar" md="md-calendar" large></ion-icon>
-            <div><span class="styleType"> تأريخ :</span> {{ needer.date }} </div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-left clear small>
-              <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
-            <div><span class="styleType">المحافظة :</span>  {{ needer.city }}  </div>
-          </button>
-              <div><span class="styleType2">اقرب نقطة دالة :</span>{{ needer.address }}</div>
-        </ion-col>
-        -
-        <!--<ion-card-content>-->
-       <!-- </ion-card-content>-->
-        <!--<ion-col>
-          <button ion-button icon-left clear small>
-              <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
-            <div><span class="styleType">اقرب نقطة دالة :</span>  {{needer.add1}}  </div>
-          </button>
-        </ion-col>-->
-
-        <!-- <ion-col center text-center>
-          <ion-note>
-            11h ago
-          </ion-note>
-        </ion-col> -->
-      </ion-row>
-
+      
+      <ion-card class="position">
+          <!-- <ion-card-content></ion-card-content> -->
+          <ion-row>
+              <ion-col>
+                <button ion-button icon-left clear small>
+                    <ion-icon ios="md-calendar" md="md-calendar" large></ion-icon>
+                  <div><span class="styleType"> تأريخ :</span> {{ needer.date }} </div>
+                </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-left clear small>
+                    <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
+                  <div><span class="styleType">المحافظة :</span>  {{ needer.city }}  </div>
+                </button>
+                <button ion-button icon-left clear small>
+                        <!-- <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon> -->
+                        <ion-icon ios="ios-compass" md="md-compass" small></ion-icon>
+                      <span class="activator grey-text text-darken-4 position material-icons left icon-arrivee styleType">اقرب نقطة دالة</span>
+                    </button>
+               
+              </ion-col>
+              
+            </ion-row>
+         
+          <div class="card-reveal">
+              <ion-icon class="card-title text-darken-4" ios="ios-close" md="md-close"></ion-icon>
+              <p>{{needer.address}}</p>
+            </div>
+          </ion-card>
+      
+      
+        
     </ion-card>
 
 
+   
+    
 
 </ion-content>

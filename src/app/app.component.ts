@@ -55,31 +55,27 @@ export class MyApp {
       
 
    if (user != null){
-     
     this.pages = [
       { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
      // { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
-     { title: 'تعديل المعلومات الشخصية', component: UpdateProfilePage, icon: "ios-home" ,md:"md-home"},
+     { title: 'تعديل المعلومات الشخصية', component: UpdateProfilePage, icon: "ios-create" ,md:"md-create"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
-      { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
+      { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-megaphone",md:"md-megaphone" },
       { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
       { title: 'شاركنا برأيك', component: FeedbackPage, icon: "ios-thumbs-up",md: "md-thumbs-up"},
       { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
       
-      
     ];
-
    }
       else{ this.pages = [
         { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
-        { title: 'تسجيل الدخول', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
+        { title: 'تسجيل الدخول', component: RegisterPage, icon: "ios-log-in" ,md:"md-log-in"},
         { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
-        { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-bonfire",md:"md-bonfire" },
+        { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-megaphone",md:"md-megaphone" },
         { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
         { title: 'شاركنا برأيك', component: FeedbackPage, icon: "ios-thumbs-up",md: "md-thumbs-up"},
 
         // { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
-        
         
       ];}
       });
