@@ -74,8 +74,7 @@ export class MyApp {
         { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-megaphone",md:"md-megaphone" },
         { title: 'اتصل بنا', component: ContactUsPage, icon: "ios-call",md: "md-call"},
         { title: 'شاركنا برأيك', component: FeedbackPage, icon: "ios-thumbs-up",md: "md-thumbs-up"},
-
-        // { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
+        { title: 'خروج', component: LogoutPage, icon: "ios-log-out",md: "md-log-out"}
         
       ];}
       });
