@@ -17,8 +17,17 @@ import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { HttpClientModule } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { UpdateProfilePage } from '../pages/update-profile/update-profile';
+import { TabsPage } from '../pages/tabs/tabs';
 
 
+
+export interface PageInterface{
+  title:string;
+  pageName:string;
+  tabComponent?:any;
+  index?: number;
+  icon: string
+}
 
 @Component({
   templateUrl: 'app.html'
@@ -29,9 +38,16 @@ export class MyApp {
   check:any;
   loggedin:any;
   rootPage: any;// = this.selectroot; //HomePage;
+  // pagesTab: PageInterface[];
   
   pages: Array<{title: string, component: any, icon: string, md:string}>;
+  // pagesTab: PageInterface[]=[
+  //   {title: 'tab 1', pageName: 'TabsPage1', tabComponent: 'Tab1Page',  index:0, icon:'home'},
+  //   {title: 'tab 2', pageName: 'TabsPage2', tabComponent: 'Tab2Page',  index:1, icon:'home'},
+  //   {title: 'tab 3', pageName: 'TabsPage3', tabComponent: 'Tab3Page',  index:2, icon:'home'},
+  //   {title: 'tab 4', pageName: 'TabsPage4', tabComponent: 'Tab4Page',  index:3, icon:'home'},
 
+  //  ]
   constructor(
     public platform: Platform,
      public statusBar: StatusBar,
@@ -42,11 +58,12 @@ export class MyApp {
    
     this.storage.get('firsttime').then((val) => {
       this.check=val;
-   if (this.check==='1'){this.rootPage=HomePage}
+  //  if (this.check==='1'){this.rootPage=HomePage}
+  if (this.check==='1'){this.rootPage=TabsPage}
       else{this.rootPage=InitialPage;}
       });
    
-   
+  
    
    
     this.initializeApp();
@@ -56,7 +73,7 @@ export class MyApp {
 
    if (user != null){
     this.pages = [
-      { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
+      { title: 'الرئيسية', component: TabsPage, icon: "ios-home" ,md:"md-home"},
      // { title: 'التسجيل', component: RegisterPage, icon: "ios-home" ,md:"md-home"},
      { title: 'تعديل المعلومات الشخصية', component: UpdateProfilePage, icon: "ios-create" ,md:"md-create"},
       { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
@@ -68,7 +85,7 @@ export class MyApp {
     ];
    }
       else{ this.pages = [
-        { title: 'الرئيسية', component: HomePage, icon: "ios-home" ,md:"md-home"},
+        { title: 'الرئيسية', component: TabsPage, icon: "ios-home" ,md:"md-home"},
         { title: 'تسجيل الدخول', component: RegisterPage, icon: "ios-log-in" ,md:"md-log-in"},
         { title: 'حول التطبيق', component: AboutUsPage,icon: "ios-people",md:"md-people" },
         { title: 'التبليغ عن الحالات الإنسانية', component: HumStateRepPage,icon: "ios-megaphone",md:"md-megaphone" },
@@ -83,6 +100,7 @@ export class MyApp {
    
 
   }
+  
 // { title: 'List', component: ListPage },
   initializeApp() {
     this.platform.ready().then(() => {
@@ -100,9 +118,8 @@ export class MyApp {
       pageName: page.title
     };
 
-  
-
-
     this.nav.setRoot(page.component, params);
   }
+ 
+  
 }

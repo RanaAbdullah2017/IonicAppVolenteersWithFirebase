@@ -5,9 +5,22 @@ body, .ion-menu{
 //     background-color: #298b74;
    
 //   }
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default{
+  color: white;
+}
+.toolbar-title {
+  text-align: center;
+  width: 60%;
+  position:fixed;
+  padding-top: 20px;
+  font-family: 'Droid Arabic Kufi', serif;
+  color: #fff
+}
+
   .toolbar-title-md
   {
     color:#f4f4f4;
+    
   }
   .item-ios, .item-md{
     color: #00a985
@@ -23,6 +36,7 @@ a.item-ios:not([detail-none]) .item-inner {
 }
 .menu-tit{
  color: #7d7d7d;
+ align-items: center;
 }
 .menu-img{
   width: 50%;

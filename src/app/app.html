@@ -4,6 +4,7 @@
       <!-- <ion-title>Menu</ion-title> -->
       <img class="menu-img" src="./assets/imgs/logoApp.png">
     </ion-toolbar>
+    
   </ion-header>
 
   <ion-content  >
@@ -16,9 +17,19 @@
       </button>
       
     </ion-list>
+   
+    <!-- <ion-list>
+      <button ion-item  *ngFor="let pt of pagesTab" (click)="opentPage(pt)">
+          <ion-icon ios={{pt.icon}} md={{pt.md}}></ion-icon>
+          {{pt.title}}
+          <!-- <ion-icon item-start [name]="pt.icon"  [color]="isActive(pt)"> </ion-icon>
+          {{pt.title}}
+      </button>
+    </ion-list> -->
   </ion-content>
 
 </ion-menu>
+
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

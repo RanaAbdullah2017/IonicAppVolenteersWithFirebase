@@ -1,0 +1,32 @@
+
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>{{ title }}</ion-title>
+        <div class = "reg">
+            <!-- <button ion-button (click)="register()">Register</button> -->
+            <ion-icon ios="ios-search" md="md-search"></ion-icon>
+        </div>
+            
+          <!-- </button> -->
+        
+      </ion-navbar>
+  <!-- <ion-navbar>
+     <button ion-button menu-toggle>
+       <ion-icon name="menu"></ion-icon>
+     </button>
+  </ion-navbar> -->
+</ion-header>
+<!-- <ion-content>محتويات</ion-content> -->
+
+  <ion-tabs #myTabs>
+      <ion-tab [root]="poorRoot" (ionSelect)="this.title ='فقير'"  tabTitle="فقير" tabIcon="poor"></ion-tab>
+      <ion-tab [root]="disasterRoot" (ionSelect)="this.title ='كارثة'"  tabTitle="كارثة" tabIcon="disaster"></ion-tab>
+      <ion-tab [root]="homeRoot" (ionSelect)="this.title ='جميع الحالات'"  tabTitle="جميع الحالات" tabIcon="home"></ion-tab>
+      <ion-tab [root]="sickRoot" (ionSelect)="this.title ='مريض'"  tabTitle="مريض" tabIcon="sick"></ion-tab>
+      <ion-tab [root]="emigrateRoot" (ionSelect)="this.title ='نازح'"  tabTitle="نازح" tabIcon="emigrate"></ion-tab>
+     
+    </ion-tabs>
+

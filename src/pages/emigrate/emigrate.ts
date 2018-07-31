@@ -6,42 +6,28 @@ import 'rxjs/add/operator/map';
 import { ReflectiveInjector } from '@angular/core/src/di/reflective_injector';
 import { AppService } from '../../app/AppService.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-// export interface PageInterface{
-//   title:string;
-//   pageName:string;
-//   tabComponent?:any;
-//   index?: number;
-//   icon: string
-// }
+
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-emigrate',
+  templateUrl: 'emigrate.html',
 })
+export class EmigratePage {
 
-export class HomePage implements OnInit{
   public images:any=[];
   public needers: any;
-  
-  // pagesTab: PageInterface[]=[
-  //   {title: 'tab 1', pageName: 'TabsPage1', tabComponent: 'Tab1Page',  index:0, icon:'home'},
-  //   {title: 'tab 2', pageName: 'TabsPage2', tabComponent: 'Tab2Page',  index:1, icon:'home'},
-  //   {title: 'tab 3', pageName: 'TabsPage3', tabComponent: 'Tab3Page',  index:2, icon:'home'},
-  //   {title: 'tab 4', pageName: 'TabsPage4', tabComponent: 'Tab4Page',  index:3, icon:'home'},
-
-  //  ]
+ 
   constructor(public navCtrl: NavController,
               public http:Http,
               public dataService:AppService,
               private afDb: AngularFireDatabase) {
+               
 
   }
-////read and view data from database
   ngOnInit(){
    this.getposts();
 
   }
-  //Temporary way to load until find solution for infinte scorll
 getposts(){
   this.needers = this.afDb.list('notifications_approved', ref => {
     return ref.orderByChild('time').limitToLast(50);
@@ -83,12 +69,6 @@ getposts(){
     }, 2000);
   }
 
-  opentPage(page) {
-    
-  }
- 
+  
 
 }
-
-
-

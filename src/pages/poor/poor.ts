@@ -6,22 +6,19 @@ import 'rxjs/add/operator/map';
 import { ReflectiveInjector } from '@angular/core/src/di/reflective_injector';
 import { AppService } from '../../app/AppService.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-// export interface PageInterface{
-//   title:string;
-//   pageName:string;
-//   tabComponent?:any;
-//   index?: number;
-//   icon: string
-// }
 
+
+// @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-poor',
+  templateUrl: 'poor.html',
 })
 
-export class HomePage implements OnInit{
+export class PoorPage {
   public images:any=[];
   public needers: any;
+  
+
   
   // pagesTab: PageInterface[]=[
   //   {title: 'tab 1', pageName: 'TabsPage1', tabComponent: 'Tab1Page',  index:0, icon:'home'},
@@ -34,6 +31,7 @@ export class HomePage implements OnInit{
               public http:Http,
               public dataService:AppService,
               private afDb: AngularFireDatabase) {
+               
 
   }
 ////read and view data from database
@@ -83,12 +81,6 @@ getposts(){
     }, 2000);
   }
 
-  opentPage(page) {
-    
-  }
- 
+  
 
 }
-
-
-

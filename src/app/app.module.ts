@@ -33,6 +33,12 @@ import { RegisterPage } from '../pages/register/register';
 import { ServicesUserProvider } from '../providers/services-user/services-user';
 import { UserProvider } from '../providers/user/user';
 
+import { PoorPage } from '../pages/poor/poor';
+import { DisasterPage } from '../pages/disaster/disaster';
+import { SickPage } from '../pages/sick/sick';
+import { EmigratePage } from '../pages/emigrate/emigrate';
+import { TabsPage } from '../pages/tabs/tabs';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyCXC8PAGisO6QsSXjgV_ZeYH205Hyr6YB0",
     authDomain: "volenteersdb-aaf27.firebaseapp.com",
@@ -56,7 +62,12 @@ export const firebaseConfig = {
     LogoutPage,
     RegisterPage,
     FeedbackPage,
-    UpdateProfilePage
+    UpdateProfilePage,
+    TabsPage,
+    PoorPage,
+    DisasterPage,
+    SickPage,
+    EmigratePage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +93,13 @@ export const firebaseConfig = {
     DeveloperPage,
     RegisterPage,
     FeedbackPage,
-    UpdateProfilePage
+    UpdateProfilePage,
+    TabsPage,
+    PoorPage,
+    DisasterPage,
+    SickPage,
+    EmigratePage
+    
   ],
   providers: [
     StatusBar,

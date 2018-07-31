@@ -1,5 +1,5 @@
 
-page-home{
+page-poor{
     body{
         direction: rtl;
         // background:#c4c2c2;
@@ -25,7 +25,24 @@ page-home{
       {
         color:#f4f4f4;
       }
-      
+    //   h5[_ngcontent-c0] {
+    .headertitle{
+        margin: 5px 0 20px 0;
+        color: #298b74;
+    }
+    
+    .card[_ngcontent-c0] .card-content[_ngcontent-c0] {
+        padding:0px 10px 10px 10px;
+
+        // border-radius: 0 0 2px 2px;
+    }
+    .card-md p {
+        font-size: 1.4rem;
+        font-weight: normal;
+        line-height: 1.5;
+        color: rgb(165, 164, 164);
+        margin: 0px 0px 2px;
+    }
 
       .slide{
           padding-top: 10px;
@@ -56,7 +73,7 @@ page-home{
         //end Social Media
     .content-md {
         color: #298b74;
-        background: #eeee;
+        background: white;
     }
     .note-md{
         color:blue;
@@ -69,7 +86,7 @@ page-home{
     .card[_ngcontent-c0] {
         position: relative;
         
-        border-radius: 15px;
+        // border-radius: 15px;
         
     }
     
@@ -98,7 +115,7 @@ page-home{
         width: 100%;
         max-width: 400px;
         background: white;
-        border-radius: 8px;
+        border-radius: 15px;
         text-align: right;
     }
     span{
@@ -134,6 +151,7 @@ page-home{
         font-size: 1.5rem;
       }
 
+      
     .card .card-content .card-title {
     display: block;
     line-height: 32px;
@@ -185,6 +203,27 @@ page-home{
         z-index: 3;
         display: none;
     }
+    .item-md.card-header{
+        height: 40px;
+        background: #ecebeb;
+        width: 350px;
+        margin-bottom: 2px;
+        padding-bottom: 20px;
+        padding-top: 10px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+    }
+    
+element.style {
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.card[_ngcontent-c0] {
+    border-radius: 15px;
+}
+
     //////////Selected Item///////////////////
     .select-md {
         padding: 13px 0px 13px 8px;
@@ -216,35 +255,45 @@ page-home{
         border-radius: 5px;
         border-color: #00a985;
         border-style: solid;
-        margin-top: 10px;
-        // padding-top: 10px;
+        // margin-top: 10px;
+        padding-top: 10px;
         // margin-right: 90px;
     }
     .label-md {
-         margin: 0px 0 0px 8px; 
+         margin: 0px 0px 10px 3px; 
     }
     .md-vertical-list.mbsc-ios-dark .mbsc-fr-arr {
         background: #0f0f0f;
     }
+    /////////////////////////////////  Avatar   ///////////////////////////////////////////
     .image {
-        height: 5vw; 
-        width: 5vw; 
-       border: 2px solid #fff;
+        // height: 5vw; 
+        // width: 5vw; 
+        width:25px;
+       height:25px;
+       border: 2px solid white;
        border-radius: 50%;
        box-shadow: 0 0 5px gray;
        display: inline-block;
        margin-left: auto;
        margin-right: auto;
    }
-   
-   .circle-pic{
-       width:50px;
-       height:50px;
-       -webkit-border-radius: 50%;
-    //    border-radius: 50%;
-       
-    //    border-style: solid;
-   }
+
+   .item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start]
+    {
+    background-color: white;}
+
+   .item-md ion-avatar ion-img, .item-md ion-avatar img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color:white;
+}
+.item-md ion-avatar[item-left], .item-md ion-thumbnail[item-left], .item-md ion-avatar[item-start], .item-md ion-thumbnail[item-start] {
+    margin: 15px 0 8px 16px;
+}
+
    ion-avatar{
     padding: 3px;
     border-style: solid;
@@ -252,15 +301,96 @@ page-home{
     border-width: 1px;
     border-radius: 50%;
    }
-    // page-home .item-md {
-    //     color: rgb(0, 169, 133);
-    //     width: 150px;
-    //     font-size: x-small;
-    //     margin-top: 10px;
-    //     margin-right: 0px;
-    //     border-radius: 5px;
-    //     border-color: rgb(0, 169, 133);
-    //     border-style: solid;
+   .item-md ion-avatar {
+    min-width: 30px;
+    min-height: 30px;
+    }
+    //////////////////////////////////////// avatar //////////////////////////////////////
+   ion-card-content{
+    border-style: solid;
+    border-width: 0.2ch;
+    border-bottom-color: #e4e2e2;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    // border-top-style: 1px  #c8c7cc;
+    // border-bottom-color: #aaaaaa;
+   }
+   /////lable City///
+    .card-md h6.label-city {
+    background-color: #7e7e80;
+    font-size: 1.4rem;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: left;
+    color:white;    
+    border-radius: 30px;
+    padding-left:5px;
+    padding-right:5px;
+      }
+    ion-row.details
+    {
+        margin-top:10px;
+        margin-bottom: 10px;
+    }
+    ion-row.linkdetails{
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+    h5[_ngcontent-c0] {
+        margin-bottom: 10px;
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    // .headerconteant{
+    //     background: #ccc; 
+    //     text-align: justify; 
+    
+    //     /* ie 7*/  
+    //     *width: 100%;  
+    //     *-ms-text-justify: distribute-all-lines;
+    //     *text-justify: distribute-all-lines;
     // }
+    //  .headerconteant:after{
+    //     content: '';
+    //     display: inline-block;
+    //     width: 100%;
+    //     height: 0;
+    //     font-size:0;
+    //     line-height:0;
+    //     display: flex;
+    // }
+    //   .title1 {
+    //     // display: inline-block;
+    //     margin-top: 0.321em; 
+    
+    //     /* ie 7*/ 
+    //     // *display: inline;
+    //     // *zoom: 1;
+    //     // *text-align: left; 
+    //     background-color: #7e7b7b;
+    //     color:white;
+    //     border-radius: 10px;
+    //     margin-top: 0px;
+    //     padding-top: 5px;
+    //     padding-bottom: 5px;
+    //     padding-left: 5px;
+    //     padding-right: 5px;
+    //     clear: both;
+    //     margin-bottom: 10px;
+    //     // display: inline-block;
+    //     // margin-right: 200px;
+    //     float: left;
+    //     // justify-content: space-between;
+    //   }
+      
+    //   .title2 {
+    //     // display: flex;
+    //     // justify-content: space-between;
+    //     // display: inline-block;
+    //     text-align: rgit;
+    //     color: #FF9D00;
+    //   }
 }
 

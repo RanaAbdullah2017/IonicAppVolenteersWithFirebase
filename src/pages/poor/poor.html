@@ -1,0 +1,74 @@
+<ion-header >
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+  <ion-navbar color="hu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
+    </button>
+    <ion-title class="g-font">الرئيسية</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="تحميل ...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  <div style="margin-top:20px"></div>
+  <div *ngFor="let needer of needers | async" >
+  <ion-card style="margin-right: 10px; margin-bottom:20px;" *ngIf="needer.type == 'فقير'">
+
+
+          <ion-item class="card-header" >
+            <ion-avatar item-start>
+                <!-- <ion-icon name="thumbs-up"></ion-icon> -->
+                <img class="circle-pic" 
+                  src="../assets/imgs/status/richblack.png" />
+               
+            </ion-avatar>
+            <h5 class="label-md headertitle" > فقير يحتاج الى مساعدة مالية</h5>
+            
+            <!-- <p>November 5, 1955</p> -->
+          </ion-item>
+          <ion-card-content>
+              <!-- <h1 style="float:right;">Title</h1> <h2 style=" float:left;">Context</h2> -->
+              <ion-row>
+                <h6 style="float:right;" class="label-city">{{ needer.city }}</h6>
+              </ion-row>
+              <ion-row class="details">
+                  <p>{{ needer.details }}</p>
+              </ion-row>
+              <ion-row class="linkdetails" style=" float:left;">
+                  <a ng-src="#" >التفاصيل</a>
+              </ion-row>
+            
+            
+          </ion-card-content>
+          <!-- <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="share"></ion-icon> 
+                <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
+                <div>{{needer.city}}</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>تفاصيل الموقع</div>
+              </button>
+            </ion-col>
+            <!-- <ion-col center text-center>
+              <ion-note>
+                11h ago
+              </ion-note>
+            </ion-col>
+          </ion-row> -->
+    </ion-card>
+   
+  </div>
+
+  </ion-content>

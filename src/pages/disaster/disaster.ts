@@ -6,22 +6,25 @@ import 'rxjs/add/operator/map';
 import { ReflectiveInjector } from '@angular/core/src/di/reflective_injector';
 import { AppService } from '../../app/AppService.service';
 import { AngularFireDatabase } from 'angularfire2/database';
-// export interface PageInterface{
-//   title:string;
-//   pageName:string;
-//   tabComponent?:any;
-//   index?: number;
-//   icon: string
-// }
 
+
+/**
+ * Generated class for the DisasterPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+// @IonicPage()
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-disaster',
+  templateUrl: 'disaster.html',
 })
-
-export class HomePage implements OnInit{
+export class DisasterPage {
   public images:any=[];
   public needers: any;
+  
+
   
   // pagesTab: PageInterface[]=[
   //   {title: 'tab 1', pageName: 'TabsPage1', tabComponent: 'Tab1Page',  index:0, icon:'home'},
@@ -34,6 +37,7 @@ export class HomePage implements OnInit{
               public http:Http,
               public dataService:AppService,
               private afDb: AngularFireDatabase) {
+               
 
   }
 ////read and view data from database
@@ -82,13 +86,4 @@ getposts(){
       refresher.complete();
     }, 2000);
   }
-
-  opentPage(page) {
-    
-  }
- 
-
 }
-
-
-

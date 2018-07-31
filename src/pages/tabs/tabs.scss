@@ -1,0 +1,81 @@
+page-tabs {
+    .toolbar-content-md{
+        background-color:#00a985;
+
+    }
+    .toolbar-background-md {
+        border-color: white;
+        background: #00a985;
+    }
+    .ion-md-emigrate {
+        content: url("../assets/imgs/status/tentblack.png") !important;
+        height:30px;
+     } 
+     .ion-md-emigrate:hover {
+         padding: 3px;
+        content: url("../assets/imgs/status/tentwhite.png") !important;
+        background-color: #00a985;
+        border-radius: 50%;
+        height:35px;
+     } 
+     .ion-md-sick {
+        content: url("../assets/imgs/status/sickblack.png") !important;
+        height:30px;
+     } 
+     .ion-md-sick:hover {
+        padding: 3px;
+        content: url("../assets/imgs/status/sickwhite.png") !important;
+        height:35px;
+        border-radius: 50%;
+        background-color: #00a985;
+     }
+     .ion-md-home {
+        content: url("../assets/imgs/status/homeblack.png") !important;
+        height:30px;
+     } 
+     .ion-md-home:hover {
+        padding: 3px;
+        content: url("../assets/imgs/status/homewhite.png") !important;
+        height:35px;
+        border-radius: 50%;
+        background-color: #00a985;
+     }
+     .ion-md-disaster {
+        content: url("../assets/imgs/status/explosionblack.png") !important;
+        height:30px;
+     } 
+     .ion-md-disaster:hover {
+        padding: 3px;
+        content: url("../assets/imgs/status/explosionwhite.png") !important;
+        height:35px;
+        border-radius: 50%;
+        background-color: #00a985;
+     }
+     .ion-md-poor {
+        content: url("../assets/imgs/status/richblack.png") !important;
+        height:30px;
+     } 
+     .ion-md-poor:hover {
+        padding: 3px;
+        content: url("../assets/imgs/status/richwhite.png") !important;
+        height:35px;
+        border-radius: 50%;
+        background-color: #00a985;
+     }
+     .ion-title{
+         width:50%;
+         font-family: 'Droid Arabic Kufi', serif;
+         color: #fff
+     }
+     .ion-icon{
+        color: white;
+     }
+     .ion-md-search:before {
+        content: "\f375";
+        padding-right: 220px;
+        text-align: left;
+        color: white;
+        font-size: x-large;
+    }
+
+}

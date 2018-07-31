@@ -1,0 +1,72 @@
+<ion-header >
+    <link type="text/css" rel="stylesheet" href="assets/materialize/css/materialize.min.css"  media="screen,projection"/>
+  <ion-navbar color="hu">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" class="btn-w"></ion-icon>
+    </button>
+    <ion-title class="g-font">الرئيسية</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      refreshingSpinner="circles"
+      refreshingText="تحميل ...">
+    </ion-refresher-content>
+  </ion-refresher>
+  
+  
+  <div *ngFor="let needer of needers | async" >
+  <ion-card style="margin-right: 10px; margin-bottom:20px;" *ngIf="needer.type == 'مريض'">
+
+
+          <ion-item >
+            <ion-avatar item-start>
+                <img class="circle-pic" 
+                  src="../assets/imgs/status/sickblack.png" />
+            </ion-avatar>
+            <h4 class="label-md" > {{ needer.type }}</h4>
+          </ion-item>
+        
+        
+          <ion-card-content>
+            <p >{{ needer.details }}</p>
+          </ion-card-content>
+        
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                11h ago
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        
+      
+      
+        
+    </ion-card>
+
+
+   
+    
+
+
+
+
+
+  </div>
+  </ion-content>

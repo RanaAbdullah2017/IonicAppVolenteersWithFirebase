@@ -17,30 +17,81 @@
       refreshingText="تحميل ...">
     </ion-refresher-content>
   </ion-refresher>
-
+  
+  <!-- <mbsc-widget [options]="verticalSettings" #vertical="mobiscroll">
+      <mbsc-listview [options]="lvSettings">
+          <mbsc-listview-item *ngFor="let item of options" [icon]="item.icon" (click)="vertical.instance.hide()">
+              {{ item.text }}
+          </mbsc-listview-item>
+      </mbsc-listview>
+  </mbsc-widget>   -->
+  
   <ion-card style="margin-right: 10px; margin-bottom:20px;" *ngFor="let needer of needers | async">
-      <ion-row>
+          <ion-item>
+              
+            <ion-avatar item-start [ngSwitch]="needer.type">
+
+                
+                <img class="circle-pic" *ngSwitchCase="'كوارث'"  src="../assets/imgs/status/explosionblack.png" />
+                <img class="circle-pic" *ngSwitchCase="'مريض'"  src="../assets/imgs/status/sickblack.png" />
+                <img class="circle-pic" *ngSwitchCase="'نازح'"  src="../assets/imgs/status/tentblack.png" />
+                <img class="circle-pic" *ngSwitchCase="'فقير'"  src="../assets/imgs/status/richblack.png" />
+
+            </ion-avatar>
+            <h4 class="label-md"> {{ needer.type }}</h4>
+            <!-- <p>November 5, 1955</p> -->
+          </ion-item>
+        
+          <!-- <img src="img/advance-card-bttf.png"> -->
+        
+          <ion-card-content>
+            <p>{{ needer.details }}</p>
+          </ion-card-content>
+        
+          <ion-row>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="thumbs-up"></ion-icon>
+                <div>12 Likes</div>
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button icon-start clear small>
+                <ion-icon name="text"></ion-icon>
+                <div>4 Comments</div>
+              </button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-note>
+                11h ago
+              </ion-note>
+            </ion-col>
+          </ion-row>
+        
+      <!-- <ion-row>
           <div class="styleType" style="padding-top: 10px;
-          padding-bottom: 10px"><span>نوع الحالة :
-          {{ needer.type }}</span>
-        </div>
-        <ion-avatar item-start>
+          padding-bottom: 10px"><p>نوع الحالة :
+          {{ needer.type }} 
+          <img src="./assets/imgs/bill.png" style="height:20px; width:20px"/></p> -->
+            <!-- <img  [src]="assets/imgs/bill.png"> -->
+        <!-- </div>
+        <ion-avatar item-start> -->
           <!-- <img src={{needer.image}}> -->
-        </ion-avatar>
-      </ion-row>
+        <!-- </ion-avatar>
+      </ion-row> -->
 
-          <img  [src]="needer.image">
+          <!-- <img  [src]="needer.image"> -->
 
 
-      <ion-card-content>
+      <!-- <ion-card-content> -->
           <!-- <span class="card-title activator grey-text text-darken-4">المحافظة:  <i class="material-icons left">more_vert</i></span> -->
-        <p>{{ needer.details }}</p>
-      </ion-card-content>
+        <!-- <p>{{ needer.details }}</p>
+      </ion-card-content> -->
 
       
-      <ion-card class="position">
+      <!-- <ion-card class="position"> -->
           <!-- <ion-card-content></ion-card-content> -->
-          <ion-row>
+          <!-- <ion-row class="footer_Card">
               <ion-col>
                 <button ion-button icon-left clear small>
                     <ion-icon ios="md-calendar" md="md-calendar" large></ion-icon>
@@ -52,9 +103,9 @@
                     <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon>
                   <div><span class="styleType">المحافظة :</span>  {{ needer.city }}  </div>
                 </button>
-                <button ion-button icon-left clear small>
+                <button ion-button icon-left clear small> -->
                         <!-- <ion-icon ios="ios-navigate-outline" md="ios-navigate-outline" large></ion-icon> -->
-                        <ion-icon ios="ios-compass" md="md-compass" small></ion-icon>
+                        <!-- <ion-icon ios="ios-compass" md="md-compass" small></ion-icon>
                       <span class="activator grey-text text-darken-4 position material-icons left icon-arrivee styleType">اقرب نقطة دالة</span>
                     </button>
                
@@ -67,7 +118,7 @@
               <p>{{needer.address}}</p>
             </div>
           </ion-card>
-      
+       -->
       
         
     </ion-card>

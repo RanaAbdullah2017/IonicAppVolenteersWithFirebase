@@ -1,13 +1,9 @@
-
-page-home{
+page-disaster {
     body{
         direction: rtl;
         // background:#c4c2c2;
     }
 
-    // #navColor{
-    //     background: #107979;
-    // }
     .bar-button-menutoggle-md ion-icon {
         padding: 0 6px;
         font-size: 2.4rem;
@@ -241,9 +237,7 @@ page-home{
        width:50px;
        height:50px;
        -webkit-border-radius: 50%;
-    //    border-radius: 50%;
-       
-    //    border-style: solid;
+    
    }
    ion-avatar{
     padding: 3px;
@@ -252,15 +246,5 @@ page-home{
     border-width: 1px;
     border-radius: 50%;
    }
-    // page-home .item-md {
-    //     color: rgb(0, 169, 133);
-    //     width: 150px;
-    //     font-size: x-small;
-    //     margin-top: 10px;
-    //     margin-right: 0px;
-    //     border-radius: 5px;
-    //     border-color: rgb(0, 169, 133);
-    //     border-style: solid;
-    // }
-}
 
+}
